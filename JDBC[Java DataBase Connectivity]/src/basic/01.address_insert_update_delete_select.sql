@@ -13,8 +13,7 @@ insert into address values(address_no_seq.nextval,'super','양경호','123-4568'
 insert into address values(address_no_seq.nextval,'strong','인경호','123-4568','경기도 시흥시');
 
 --update(pk update)
-update address set id='xxx',name='김경호',phone='888-8888',address='서울시 강남구'
-where no=1;
+update address set id='xxx',name='김경호',phone='888-8888',address='서울시 강남구' where no=1;
 --delete(pk delete)
 delete address where no=1;
 
