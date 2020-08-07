@@ -1,4 +1,5 @@
-package dao.address;
+package dao.address.second;
+
 /*
 이름      널?       유형            
 ------- -------- ------------- 

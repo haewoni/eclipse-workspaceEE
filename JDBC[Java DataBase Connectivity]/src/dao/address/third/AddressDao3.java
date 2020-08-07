@@ -1,4 +1,4 @@
-package dao.address;
+package dao.address.third;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
+
+import dao.address.Address;
 
 public class AddressDao3 {
 	/************** DB접속정보 **************/
@@ -75,8 +77,8 @@ public class AddressDao3 {
 		 Class.forName(driverClass);
 		 Connection con = DriverManager.getConnection(url,user,password);
 		 PreparedStatement pstmt = con.prepareStatement(selectSql);
-		 ResultSet rs = pstmt.executeQuery();
 		 pstmt.setInt(1, fno);
+		 ResultSet rs = pstmt.executeQuery();
 			
 		 Address findAddress = null;
 		 while(rs.next()) {
@@ -102,15 +104,15 @@ public class AddressDao3 {
 		 PreparedStatement pstmt = con.prepareStatement(selectAllSql);
 		 ResultSet rs = pstmt.executeQuery();
 			
-		 ArrayList<Address> findAddressList = null;
+		 ArrayList<Address> findAddressList = new ArrayList<Address>();
 		 while(rs.next()) {
-			 int no = rs.getInt("no");
-			 String id = rs.getString("id");
-			 String name = rs.getString("name");
-			 String phone = rs.getString("phone");
-			 String address = rs.getNString("address");
-			 
-			 findAddressList.add(new Address(no, id, name, phone, address));
+			 Address temp = new Address();
+			 temp.setNo(rs.getInt("no"));
+			 temp.setId(rs.getString("id"));
+			 temp.setName(rs.getString("name"));
+			 temp.setPhone(rs.getString("phone"));
+			 temp.setAddress(rs.getString("address"));
+			 findAddressList.add(temp);
 		 }
 		 rs.close();
 		 pstmt.close();

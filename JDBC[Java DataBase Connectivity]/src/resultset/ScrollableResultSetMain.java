@@ -45,19 +45,28 @@ public class ScrollableResultSetMain {
 		rs.afterLast();
 		rs.previous();
 		System.out.println(rs.getInt("empno")+"\t"+rs.getString("ename"));
+		rs.beforeFirst();
 		if(rs.isBeforeFirst() || rs.isAfterLast()) {
-			System.out.println("rs cursor가 BeforeFirst or AfterLast에 위치해있네요!");
+			System.out.println("rs cursor 가 BeforeFirst or AfterLast에 위치해있네요!!");
 		}
-		System.out.println("----------rs.absolute(row번호)-----------");
-		rs.absolute(5);
+		
+		System.out.println("-------------rs.absolute(row번호)---------");
+		rs.absolute(10);
 		System.out.println(rs.getInt("empno")+"\t"+rs.getString("ename"));
-		System.out.println("------------rs.realtive(2)-----------");
+		System.out.println("-------------rs.realtive(2)---------");
 		rs.relative(2);
 		System.out.println(rs.getInt("empno")+"\t"+rs.getString("ename"));
 		rs.relative(-2);
 		System.out.println(rs.getInt("empno")+"\t"+rs.getString("ename"));
 		
 		rs.close();
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
