@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public interface DeptDao {
 	// 부서 등록
-	public void insert(Dept deparment) throws Exception;
+	public int insert(Dept deparment) throws Exception;
 	// 부서번호로 부서정보 반환
 	public Dept selectByNo(int deptno) throws Exception;
 	// 부서 전체목록 반환

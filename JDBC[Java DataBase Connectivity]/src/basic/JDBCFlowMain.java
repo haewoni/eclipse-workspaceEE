@@ -11,11 +11,17 @@ public class JDBCFlowMain {
 	public static void main(String[] args) throws Exception {
 		Properties dbProperties = new Properties();
 		dbProperties.load(JDBCFlowMain.class.getResourceAsStream("db.properties"));
-	
 		String driverClass= dbProperties.getProperty("driverClass");
 		String url = dbProperties.getProperty("url");
 		String user = dbProperties.getProperty("user");
 		String password = dbProperties.getProperty("password");
+		
+		/*
+		    String driverClass= "oracle.jdbc.OracleDriver";
+			String url = "jdbc:oracle:thin:@182.237.126.19:1521:XE";
+			String user = "javapython30";
+			String password = "javapython30";
+		 */
 		
 		String selectSql = "select * from emp";
 		

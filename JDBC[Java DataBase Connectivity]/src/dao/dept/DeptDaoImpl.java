@@ -1,30 +1,34 @@
 package dao.dept;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.itwill.account.ConnectionFactory;
 
 public class DeptDaoImpl implements DeptDao{
 	
+	/*
 	String driverClass = "oracle.jdbc.OracleDriver";
 	String url = "jdbc:oracle:thin:@182.237.126.19:1521:XE";
 	String user = "javapython30";
 	String password = "javapython30";
+	*/
 	
 	@Override
-	public void insert(Dept department) throws Exception {
+	public int insert(Dept department) throws Exception {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(DeptSQL.INSERT);
 		pstmt.setInt(1, department.getDeptno());
 		pstmt.setString(2, department.getDname());
 		pstmt.setString(3, department.getLoc());
-		con.close();
+		int insertRowCount = pstmt.executeUpdate();
+		ConnectionFactory.releaseConnection(con);
 		pstmt.close();
 		
+		return insertRowCount;
 	}
 
 	@Override
@@ -44,7 +48,7 @@ public class DeptDaoImpl implements DeptDao{
 		}
 		rs.close();
 		pstmt.close();
-		con.close();
+		ConnectionFactory.releaseConnection(con);
 		
 		return findDept;
 	}
@@ -55,7 +59,7 @@ public class DeptDaoImpl implements DeptDao{
 		PreparedStatement pstmt = con.prepareStatement(DeptSQL.SELECTBYALL);
 		ResultSet rs = pstmt.executeQuery();
 		
-		List<Dept> findDeptAll = null;
+		List<Dept> findDeptAll = new ArrayList<Dept>();
 		while(rs.next()) {
 			Dept temp = new Dept();
 			temp.setDeptno(rs.getInt("deptno"));
@@ -65,7 +69,7 @@ public class DeptDaoImpl implements DeptDao{
 		}
 		rs.close();
 		pstmt.close();
-		con.close();
+		ConnectionFactory.releaseConnection(con);
 		
 		return findDeptAll;
 		
