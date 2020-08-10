@@ -1,10 +1,12 @@
 package dao.dept;
 
-import java.lang.invoke.ConstantCallSite;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
+
+import com.itwill.account.ConnectionFactory;
 
 public class DeptDaoImpl implements DeptDao{
 	
@@ -15,10 +17,8 @@ public class DeptDaoImpl implements DeptDao{
 	
 	@Override
 	public void insert(Dept department) throws Exception {
-		String insertSql = "insert into dept values(?,?,?)";
-		Class.forName(driverClass);
-		Connection con = DriverManager.getConnection(url,user,password);
-		PreparedStatement pstmt = con.prepareStatement(insertSql);
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(DeptSQL.INSERT);
 		pstmt.setInt(1, department.getDeptno());
 		pstmt.setString(2, department.getDname());
 		pstmt.setString(3, department.getLoc());
@@ -29,14 +29,47 @@ public class DeptDaoImpl implements DeptDao{
 
 	@Override
 	public Dept selectByNo(int deptno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(DeptSQL.SELECTBYNO);
+		pstmt.setInt(1, deptno);
+		ResultSet rs = pstmt.executeQuery();
+		
+		Dept findDept = null;
+		while(rs.next()) {
+			int deptNo = rs.getInt("deptno");
+			String dName = rs.getString("dname");
+			String loc = rs.getString("loc");
+			
+			findDept = new Dept(deptno,dName,loc);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		return findDept;
 	}
 
 	@Override
-	public List selectByAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Dept> selectByAll() throws Exception {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(DeptSQL.SELECTBYALL);
+		ResultSet rs = pstmt.executeQuery();
+		
+		List<Dept> findDeptAll = null;
+		while(rs.next()) {
+			Dept temp = new Dept();
+			temp.setDeptno(rs.getInt("deptno"));
+			temp.setDname(rs.getString("Dname"));
+			temp.setLoc(rs.getString("Loc"));
+			findDeptAll.add(temp);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		return findDeptAll;
+		
+		
 	}
 
 }
