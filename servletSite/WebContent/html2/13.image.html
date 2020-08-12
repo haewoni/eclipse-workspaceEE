@@ -2,10 +2,36 @@
 
 <html>
 <head>
-	<meta charset="euc-kr" />	
+	<meta charset="UTF-8" />	
 	<title>image 요소 연습</title>
 </head>
 <body>
+	<h2>절대경로[http://~로 시작하는 경로]</h2>
+	
+	<p>
+		<img alt ="구글로고" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+		<img alt ="다음로고" src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+		<img alt ="펭귄1" src="http://192.168.15.3/servletSite/html2/images/penguin/penguin1.gif">
+	</p>
+	
+	<h2>절대경로[http://~로 시작하는 경로]servletSite 안의 리소스</h2>
+	
+	<p>
+		<img alt ="펭귄1" src="http://192.168.15.3/servletSite/html2/images/penguin/penguin1.gif">
+		<img alt ="펭귄2" src= "http://192.168.15.3/servletSite/html2/images/penguin/penguin2.gif">
+		<img alt ="오리1" src="http://192.168.15.3/servletSite/html2/images/penguin/ori1.gif">
+		<img src = "http://192.168.15.3/servletSite/tomcat.gif" width="100px" height = "100px">
+	</p>
+	
+	<h2>상대경로[http://~로 시작하는 경로]servletSite 안의 리소스</h2>
+	
+	<p>
+		<img alt ="펭귄1" src="images/penguin/penguin1.gif">
+		<img alt ="펭귄2" src= "http://192.168.15.3/servletSite/html2/images/penguin/penguin2.gif">
+		<img alt ="오리1" src="http://192.168.15.3/servletSite/html2/images/penguin/ori1.gif">
+		<img src = "http://192.168.15.3/servletSite/tomcat.gif" width="100px" height = "100px">
+	</p>
+	
 	
 	<img src="../image/2.jpg" 
 		alt="이미지가 없을 때 표시할 내용" align="middle"

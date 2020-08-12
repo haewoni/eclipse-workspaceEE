@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		a tag: 다른 페이지 특정 위치로 이동할때 사용하는 태그
+		<hr>
+	</div>
+	<ul>
+		<li>----절대 경로[URL]----</li>
+		<li><a href = "http://www.naver.com/index.html"target="_self">네이버</a></li>
+		<li><a href = "http://www.daum.net/index.html">다음</a></li>
+		<li><a href = "http://192.168.15.5/servletSite/gugudan.do" target="_blank">구구단</a></li>
+		
+		<li>----절대 경로[URL] 내 서버 servletSite context 안의 리소스----</li>
+		<li><a href='http://192.168.15.3/servletSite/gugudan.do'>혜원구구단</a></li>
+		<li><a href='http://192.168.15.3/servletSite/address_detail.html'>혜원HTML</a></li>
+		<li><a href='http://192.168.15.3/html2/11.form.html'>혜원HTML</a></li>
+		
+		<li>----상대 경로[URL] 내 서버 servletSite context 안의 리소스----</li>
+		<li><a href='../gugudan.do'>혜원구구단</a></li>
+		<li><a href='../index.html'>혜원HTML</a></li>
+		<li><a href='12.hyperlink.html'>혜원HTML2</a></li>
+		<li><a href='http://192.168.15.3/html2/11.form.html'>혜원HTML2</a></li>
+		<li><a href= ''></a></li>
+		<li>
+			<a href = 'images/penguin/penguin1.gif'>/servletSite/html2/images/penguin/penguin1.gif</a>
+		</li>
+		<li>
+			<a href = './images/penguin/penguin2.gif'>/servletSite/html2/images/penguin/penguin1.gif</a>
+		</li>
+		<li>
+			<a href = './images/penguin/penguin3.gif'>/servletSite/html2/images/penguin/penguin1.gif</a>
+		</li>
+		
+	
+	</ul>
+</body>
+</html>
