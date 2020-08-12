@@ -25,7 +25,7 @@ public class GugudanServlet extends HttpServlet {
 		/*
 		 * 2-1. 응답 객체에 응답 헤더 ContentType 설정
 		 */
-		
+		 
 		response.setContentType("text/plain;charset=UTF-8");
 
 		/*
@@ -37,9 +37,13 @@ public class GugudanServlet extends HttpServlet {
 		 * 2-3. 클라이언트(웹브라우져)로 데이터 출력
 		 */
 		
-		for(int i = 0; i < 8; i++) {
-			out.println("2*1=2  3*1=3  4*1=4  5*1=5  6*1=6  7*1=7  8*1=8  9*1=9");
+		for(int i = 1; i < 10; i++) {
+			for (int j = 2; j < 10; j++) {
+			out.printf(" %d*%d = %2d  ",j,i,i*j);
+			}
+			out.println();
 		}
+	
 		
 		/*
 		"2*1=2  3*1=3  4*1=4  5*1=5  6*1=6  7*1=7  8*1=8  9*1=9
