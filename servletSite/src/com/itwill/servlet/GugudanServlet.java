@@ -61,7 +61,7 @@ public class GugudanServlet extends HttpServlet {
 			out.println("<td align=center>"+j+"*"+i+"="+i*j+"</td>");
 			}
 			out.println("</tr>");
-
+		}
 		out.println("</table>");
 		out.println("<br/>");
 		out.println("</BODY>");
