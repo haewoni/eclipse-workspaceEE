@@ -25,7 +25,7 @@ public class GugudanServlet extends HttpServlet {
 		 * 2-1. 응답 객체에 응답 헤더 ContentType 설정
 		 */
 		 
-		response.setContentType("text/plain;charset=UTF-8");
+		response.setContentType("text/HTML;charset=UTF-8");
 
 		/*
 		 * 2-2. 응답 객체로부터 클라이언트(웹브라우져)로 전송할 스트림 생성
@@ -36,13 +36,38 @@ public class GugudanServlet extends HttpServlet {
 		 * 2-3. 클라이언트(웹브라우져)로 데이터 출력
 		 */
 		
+//		for(int i = 1; i < 10; i++) {
+//			for (int j = 2; j < 10; j++) {
+//			out.printf(" %d*%d = %2d  ",j,i,i*j);
+//			}
+//			out.println();
+//		}
+		
+		out.println("<HTML>");
+		out.println("<HEAD>");
+		out.println("<TITLE>방가워요 서블릿</TITLE>");
+		out.println("</HEAD>");
+		out.println("<BODY>");
+		out.println("<center><H2>서블릿 잘났어 정말 별꼴이야!!!!!!!!!</H2><center>");
+		out.println("<img src='tomcat.gif'/>");
+		
+
+		out.println("<center><H2>서블릿 구구단</H2></center>");
+		out.println("<table border=1 width=600 bgcolor=#CCFF33 bordercolordark=#FF6600 cellspacing=0>");
+		// loop start
 		for(int i = 1; i < 10; i++) {
+			out.println("<tr>");
 			for (int j = 2; j < 10; j++) {
-			out.printf(" %d*%d = %2d  ",j,i,i*j);
+			out.println("<td align=center>"+j+"*"+i+"="+i*j+"</td>");
 			}
-			out.println();
-		}
-	
+			out.println("</tr>");
+
+		out.println("</table>");
+		out.println("<br/>");
+		out.println("</BODY>");
+		out.println("</HTML>");
+		
+		
 		
 		/*
 		"2*1=2  3*1=3  4*1=4  5*1=5  6*1=6  7*1=7  8*1=8  9*1=9

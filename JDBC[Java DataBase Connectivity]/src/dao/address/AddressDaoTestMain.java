@@ -7,7 +7,7 @@ public class AddressDaoTestMain {
 		AddressDao addressDao=new AddressDaoImpl();
 		System.out.println("-----------1.create-----------");
 		int insertRowCount=
-				addressDao.create(new Address("xxx", "김수미","234-9090", "CANADA"));
+				addressDao.create(new Address("xxx", "신지원","1111-2222", "CANADA"));
 		System.out.println("create:"+insertRowCount);
 		
 		System.out.println("-----------2.update-----------------");

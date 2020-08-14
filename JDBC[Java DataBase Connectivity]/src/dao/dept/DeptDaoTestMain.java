@@ -9,7 +9,7 @@ public class DeptDaoTestMain {
 		
 	
 		System.out.println("------------1.Insert----------------");
-		int insertRowCount = deptDao.insert(new Dept(50,"BUYING","LA"));
+		int insertRowCount = deptDao.insert(new Dept(70,"BUYING","NY"));
 		System.out.println(insertRowCount);
 		
 		
