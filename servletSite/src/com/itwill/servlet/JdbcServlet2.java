@@ -2,16 +2,16 @@ package com.itwill.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.itwill.address.Address;
+import com.itwill.address.AddressService;
 
 /**
  * Servlet implementation class JdbcServlet1
@@ -24,6 +24,12 @@ public class JdbcServlet2 extends HttpServlet {
 			
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
+			/*
+			 * 1.Service 객체 생성(AddressService)
+			 * 2.Service 객체 메소드 호출(SelectAll)
+			 */
+			AddressService addressService = new AddressService();
+			ArrayList<Address> addressList = addressService.selectAll();
 			
 			
 			out.println("<html>");
@@ -39,13 +45,14 @@ public class JdbcServlet2 extends HttpServlet {
 			out.println("<td align=center height=20 width=25%><font color=#FFFFFF>전화번호</font></td>");
 			out.println("<td align=center height=20 width=50%><font color=#FFFFFF>주소</font></td>");
 			out.println("</tr>");
-		
+			for(int i=0;i<addressList.size();i++) {
+				Address address = addressList.get(i);
 				out.println("<tr class=t1>");
-				out.println("<td align=center width=25% height=20>name</td>"); 
-				out.println("<td align=center width=25% height=20>phone</td>");
-				out.println("<td align=center width=50% height=20>address</td>");
-				out.println("</tr>");
-			
+				out.println("<td align=center width=25% height=20>"+address.getName()+"</td>"); 
+				out.println("<td align=center width=25% height=20>"+address.getPhone()+"</td>");
+				out.println("<td align=center width=50% height=20>"+address.getAddress()+"</td>");
+				out.println("</tr>");	
+			}
 			out.println("</table>");
 			out.println("</body>");
 			out.println("</html> ");

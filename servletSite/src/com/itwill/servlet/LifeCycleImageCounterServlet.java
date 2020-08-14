@@ -38,7 +38,7 @@ public class LifeCycleImageCounterServlet extends HttpServlet {
 		super.init(config);
 		count=0;
 		System.out.println("1.init()생성자 호출직후에 단한번호출[객체초기화,리소스획득] ");
-	}
+	} 
 	@Override
 	public void destroy() {
 		super.destroy();

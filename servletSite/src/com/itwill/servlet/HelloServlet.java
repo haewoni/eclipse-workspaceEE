@@ -39,7 +39,7 @@ public class HelloServlet extends HttpServlet {
 		 */
 		
 	 	for(int i = 0;i<1000;i++) {
-			out.println("<h3>HelloServlet"+(i+1)+"[Servlet]!!!</h3><hr>");
+			out.println("<h3>Hello"+(i+1)+"[Servlet]!!!</h3><hr>");
 			
 		}
 		

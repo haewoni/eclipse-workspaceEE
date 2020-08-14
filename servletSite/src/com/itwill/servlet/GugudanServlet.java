@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 		/*
 		 * 1. HttpServlet 상속
 		 */
-
 public class GugudanServlet extends HttpServlet {
 		
 	/*
