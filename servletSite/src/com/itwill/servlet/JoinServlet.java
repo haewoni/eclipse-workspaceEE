@@ -31,7 +31,7 @@ public class JoinServlet extends HttpServlet {
 		/*******************************************
 		  1.요청시에 전송되는 파라메타받기 
 		     - 파라메타이름은 input element의 name속성과일치
-		      	<input type="text" name="xxx">
+		      	<input type="text" name="xxx"> 
 		     - join.do?xxx=java
 		     - request.getParameter("xxx")
 		     
@@ -47,9 +47,10 @@ public class JoinServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id=request.getParameter("id");
 		String name=request.getParameter("name");
-		String address=request.getParameter("address");
+		String addr=request.getParameter("addr");
 		String gender=request.getParameter("gender");
 		String[] hobbies=request.getParameterValues("hobby");
+		
 		
 		/*
 		 * 2.Service객체메쏘드 호출
@@ -58,22 +59,54 @@ public class JoinServlet extends HttpServlet {
 		/*
 		 * 3.클라이언트에 결과전송
 		 */
+		out.println("<table border=1 align=center>");
 		out.print("<tr>");
-		out.print("<table border=1 width=300>");
+		out.println("<td colspan=2 style=text-align:center>"+name+"님 가입정보</td>");
 		out.print("</tr>");
-		out.println("<h1>"+name+"님 가입정보</h1><hr>");
-		out.print("<o1>");
-		out.println("<ul>");
-		out.println("<li>아이디:"+id+"</li>");
-		out.println("<li>주소:"+address+"</li>");
-		out.println("<li>성별:"+gender+"</li>");
-		for (int i = 0; i < hobbies.length; i++) {
-			out.println("<li>취미:"+hobbies[i]+"</li>");
+		
+		out.print("<tr>");
+		out.println("<td>아이디</td>");		
+		out.println("<td>"+id+"</td>");
+		out.print("</tr>");
+		
+		out.print("<tr>");
+		out.println("<td>이름</td>");		
+		out.println("<td>"+name+"</td>");
+		out.print("</tr>");
+		
+		out.print("<tr>");
+		out.println("<td>주소</td>");		
+		out.println("<td>"+addr+"</td>");
+		out.print("</tr>");
+		
+		out.print("<tr>");
+		out.println("<td>성별</td>");		
+		out.println("<td>"+gender+"</td>");
+		out.print("</tr>");
+		
+		out.print("<tr>");
+		if(hobbies==null) {
+			out.println("<td style=text-align:center>취미</td>");
+			out.println("<td>없음<td>");
+			out.print("</tr>");
 		}
-		out.println("</ul>");
+		out.print("<tr>");
+		for (int i = 0; i < hobbies.length; i++) {		
+			out.println("<td> 취미</td>");		
+		out.println("<td>"+hobbies[i]+"</td>");
+		out.print("</tr>");
+		}
 		
 		
-	}
+		//out.println("<li>성별:"+gender+"</li>");
+		//out.println("<li>성별:"+gender+"</li>");
+	//	for (int i = 0; i < hobbies.length; i++) {
+	//		out.println("<li>취미:"+hobbies[i]+"</li>");
+		}
+	//	out.print("</tr>");
+		
+		
+	
 
 }
 

@@ -7,12 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itwill.address.Address;
+import com.itwill.address.AddressService;
+
 /**
  * Servlet implementation class AddressInsertActionServlet
  */
 @WebServlet("/address_insert_action.do")
 public class AddressInsertActionServlet extends HttpServlet {
- 
+	
+
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("address_insert_form.html");
 	}
@@ -21,13 +26,43 @@ public class AddressInsertActionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	 /*
-	  * 1.파라미터 받기
-	  * 2.AddressService 객체 생성
-	  * 3.파라미터 데이터로 address 객체에 생성
-	  * 4. AddressService.create() 메소드 실행
-	  * 5. address_list.do 로 redirection
-	  */
+		try {
+			/*
+			 * 0.요청객체 encoding설정
+			 * 1.파라메타 받기
+			 * 2.AddressService객체생성
+			 * 3.파라메타데이타로 Address객체생성
+			 * 4.AddressService.create()메쏘드실행
+			 * 5.adress_list.do로 redirection
+			 */
+			request.setCharacterEncoding("UTF-8");
+			String id=request.getParameter("id");
+			String name=request.getParameter("name");
+			String phone=request.getParameter("phone");
+			String address=request.getParameter("address");
+			Address recvAddress=new Address(id, name, phone, address);
+			AddressService addressService=new AddressService();
+			int insertRowcount = addressService.create(recvAddress);
+			response.sendRedirect("address_list.do");
+		}catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect("address_error.html");
+		}
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
