@@ -21,7 +21,7 @@
 				%>
 				<tr>
 					<%for(int j=2;j<10;j++){ %>
-						<td align=center>
+						<td align=center>   
 							<%out.print(j);%>*<%out.print(i);%>=<%out.print(j*i);%>
 						</td>
 					<%}%>

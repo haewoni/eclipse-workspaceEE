@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+<%
 for(int i=0;i<100;i++){
 %>	
 	<h3>Hello JSP[change]</h3>
