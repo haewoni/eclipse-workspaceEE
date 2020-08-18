@@ -22,21 +22,21 @@ import javax.servlet.http.HttpServletResponse;
     <url-pattern>/lifecycle.do</url-pattern>
     <url-pattern>/lifecycle</url-pattern>
     <url-pattern>/lifecycle.html</url-pattern>
-    <url-pattern>/lifecycle.nhn</url-pattern>
+    <url-pattern>/lifecycle.nhn</url-pattern> 
   </servlet-mapping>
 
  */
 
 @WebServlet("/imagecounter.do")
 public class LifeCycleImageCounterServlet extends HttpServlet {
-	int count;
+	int count1;
 	public LifeCycleImageCounterServlet() {
 		System.out.println("0.LifeCycleCounterServlet 기본생성자호출:"+ this);
 	}
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		count=0;
+		count1=0;
 		System.out.println("1.init()생성자 호출직후에 단한번호출[객체초기화,리소스획득] ");
 	} 
 	@Override
@@ -56,8 +56,16 @@ public class LifeCycleImageCounterServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body bgcolor=#40e0d0 style=\"font-size: 9pt; line-height: 140%;\">");
 		out.println("	<center>");
-		count++;
-		out.println("		현재까지의 페이지뷰수[요청횟수] <img src='images/5.png'><img src='images/9.png' >번입니다");
+		
+		
+		
+		count1++;
+		String count2 = Integer.toString(count1);
+		out.println("		현재까지의 페이지뷰수[요청횟수]는");
+		for (int i = 0; i < count2.length(); i++) {
+			out.println("<img src='images/"+count2.charAt(i)+".png'>");
+			}
+		out.println(" 번입니다");
 		out.println("	</center>");
 		out.println("</body>");
 		out.println("</html>");

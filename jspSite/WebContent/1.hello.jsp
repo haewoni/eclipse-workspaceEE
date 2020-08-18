@@ -13,5 +13,9 @@ for(int i=0;i<100;i++){
 <%
 }   
 %>	
+<br/>
+<br/>
+<br/>
+<%@ include file="5-6.directive_included_file.jspf" %>
 </body>
 </html>

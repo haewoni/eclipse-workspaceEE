@@ -1,6 +1,15 @@
 <%@ page contentType= "text/html; charset=UTF-8" %>
 <%!
 	private int count=0;
+	public void jspInit(){
+		System.out.println("1.jspInit():객체 생성시 단 한 번 호출되는 메소드[객체초기화,리소스 획득]");
+	}
+	public void jspDestroy() {
+		System.out.println("3.jspDestroy():객체가 메모리에서 해지시 호출[리소스 반환]");
+	}
+%>
+<%
+	System.out.println("2._jspService()호출: 요청시마다 호출");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,4 +25,5 @@
 			 명입니다 
 			</center> 
 			</body> 
+			
 </html> 

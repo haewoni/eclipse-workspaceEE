@@ -17,16 +17,18 @@ import sun.awt.RepaintArea;
 
 /**
  * Servlet implementation class AddressListServlet
- */
+ */ 
 @WebServlet("/address_list.do")
 public class AddressListServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		try {
+			
 		PrintWriter out = response.getWriter();
 		AddressService addressService = new AddressService();
 		ArrayList<Address> addressList = addressService.selectAll();
+		
 			out.println("<!DOCTYPE html>");
 			out.println("<html>");
 			out.println("<head>");

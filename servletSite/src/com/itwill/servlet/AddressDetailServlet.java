@@ -38,9 +38,9 @@ public class AddressDetailServlet extends HttpServlet {
 				response.sendRedirect("address_main.do");
 				return;
 			}
-			AddressService addressSevice=new AddressService();
+			AddressService addressService=new AddressService();
 			Address address=
-					addressSevice.selectByNo(Integer.parseInt(noStr));
+					addressService.selectByNo(Integer.parseInt(noStr));
 			
 			out.println("<!DOCTYPE html>");
 			out.println("<html>");

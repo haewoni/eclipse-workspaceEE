@@ -40,9 +40,12 @@ public class AddressInsertActionServlet extends HttpServlet {
 			String name=request.getParameter("name");
 			String phone=request.getParameter("phone");
 			String address=request.getParameter("address");
+			
 			Address recvAddress=new Address(id, name, phone, address);
 			AddressService addressService=new AddressService();
+			
 			int insertRowcount = addressService.create(recvAddress);
+			
 			response.sendRedirect("address_list.do");
 		}catch (Exception e) {
 			e.printStackTrace();
