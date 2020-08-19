@@ -24,7 +24,7 @@
 <%
 	for(Address address:addressList) {
 %>
-	<li><a href='address_detail.do?no=address.getNo()'>
+	<li><a href='address_detail.jsp?no=<%=address.getNo()%>'>
 	[<%=address.getNo()%>]<%=address.getName()%> </a></li>
 <%}%>	
 	</ul>

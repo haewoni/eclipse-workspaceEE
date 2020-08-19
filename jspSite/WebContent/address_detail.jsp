@@ -10,7 +10,7 @@
 		return;
 }
 	AddressService addressService = new AddressService();
-	Address address = addressService.selectByNo(Integer.parseInt(noStr));
+    Address address = addressService.selectByNo(Integer.parseInt(noStr));
 %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 <body>
 <h1>[<%=address.getName()%>님 주소록상세보기]</h1><hr>
 <div>
-	<a href='address_delete_action.jsp?no=<%=address.getNo()%>'><%=address.getName()%>님삭제[GET]</a>
+	<a href='address_delete_action.jsp?no=<%=address.getNo()%>'>[<%=address.getName()%>님삭제[GET]]</a>
 	<a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName()%>님 주소록수정폼]</a>
 	<a href='address_insert_form.jsp'>[주소록쓰기폼]</a>
 	<a href='address_list.jsp'>[주소록리스트]</a>

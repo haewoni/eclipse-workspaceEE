@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    request.setCharacterEncoding("UTF-8");	
-    String msg =request.getParameter("msg");
-    %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <%
+ 	request.setCharacterEncoding("UTF-8");
+ 
+ 	String msg=request.getParameter("msg");
+ 	if(msg==null)msg="";
+ 	String id=request.getParameter("id");
+ 	if(id==null)id="";
+ 	String pass=request.getParameter("pass");
+ 	if(pass==null)pass="";
+ %>   
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,8 +27,8 @@
  method:요청방법
  -->
 <form action="4.login_post_result.jsp" method="post">
-	<input type="text" name="id" placeholder="아이디"><br/>
-	<input type="password" name="pass" placeholder= "패스워드"><br/><br/>
+	<input type="text" name="id" placeholder="아이디" value="<%=id%>"><span style="color: red;"><%=msg%></span><br/>
+	<input type="password" name="pass" placeholder="패쓰워드" value="<%=pass%>"><br/><br/>
 	<!-- 
 		form안에 존재해야하며 버튼클릭시에 자기가 속해있는 폼의
 		데이타모두를 가지고 메쏘드에기술된 방식(POST)으로 
