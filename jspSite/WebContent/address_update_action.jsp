@@ -14,18 +14,18 @@
  5.address_view.jsp?no=23 로 redirection
 */
 	request.setCharacterEncoding("UTF-8");
-
+	
 	String no = request.getParameter("no");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
 	String address = request.getParameter("address");
 
-	Address updateAddress = new Address(id,name,phone,address);
+	Address updateAddress = new Address(Integer.parseInt(no),id,name,phone,address);
 	AddressService addressService = new AddressService();
 	
-	int updateRowCount = addressService.update(updateAddress);
-	response.sendRedirect("address_detail.jsp?no=address.getNo()");
+	addressService.update(updateAddress);
+	response.sendRedirect("address_detail.jsp?no="+no);
 	
 
 %>
