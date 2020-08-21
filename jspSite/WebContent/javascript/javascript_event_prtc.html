@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function h1_mouse_over_function() {
+		console.log('h1 mouse over funtion');
+	}
+	
+	function form_submit_function() {
+		if(confirm('진짜로 가입할래요?')) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+</script>
+</head>
+<body onload="h1_mouse_over_function();">
+<h1 onclick="h1_click_function();">자바자바자바</h1><hr>
+<form onsubmit="return form_submit_function();" action="penguin1.gif" method="post">
+	자바나라:<input type="text">
+	<input type="submit" value="클릭">
+</form>
+
+<pre>
+메에
+</pre>
+
+</body>
+</html>

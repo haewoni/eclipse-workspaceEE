@@ -18,6 +18,20 @@
 <link rel="stylesheet"
 	href="css/guest.css">
 
+<script type="text/javascript">
+	function guestWriteAction() {
+		if (document.f.guest_name.value == '') {
+			alert('이름을 입력하세요');
+			document.f.guest_name.focus();
+			return;
+		}
+		
+		document.f.action='guest_write_action,jsp';
+		document.f.method='POST';
+		document.f.submit();
+	}
+</script>
+
 
 
 
