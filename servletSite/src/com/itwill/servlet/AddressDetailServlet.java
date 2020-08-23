@@ -27,12 +27,16 @@ public class AddressDetailServlet extends HttpServlet {
 			http://192.168.15.31/servletSite/address_detail.do?no=45
 			 */
 			/*
-			 * 1.파라메타 바끼(no)
+			 * 1.파라메타 (no)
 			 * 2.AddressService객체생성
 			 * 3.받은파라메타로 AddressService.selectByNo()메쏘드실행
 			 * 4.Address객체반환
 			 * 5.보여주기
 			 */
+			
+			
+			
+			
 			String noStr=request.getParameter("no");
 			if(noStr==null||noStr.equals("")) {
 				response.sendRedirect("address_main.do");
