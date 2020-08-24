@@ -17,7 +17,10 @@ public class GuestDaoImpl implements GuestDao{
 	}
 	@Override
 	public int insertGuest(Guest guest) throws Exception {
-	 
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_INSERT);
+		int insertRowCount = pstmt.executeUpdate();
+		
 		return 0;
 	}
 
