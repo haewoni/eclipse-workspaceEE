@@ -70,7 +70,7 @@
 					<tr>
 						<td width=50 align=center bgcolor="ffffff" height="20"><%=guest.getGuest_no()%></td>
 						<td width=300 bgcolor="ffffff" style="padding-left: 10"><a
-							href="guest_view.jsp?guest_no=43" class="user">
+							href="guest_view.jsp?guest_no=<%=guest.getGuest_no()%>" class="user">
 								<%=guest.getGuest_title()%>
 						</a></td>
 						<td width=120 align=center bgcolor="ffffff"><%=guest.getGuest_name()%></td>
