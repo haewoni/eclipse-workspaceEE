@@ -19,15 +19,38 @@ public class GuestDaoImpl implements GuestDao{
 	public int insertGuest(Guest guest) throws Exception {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_INSERT);
+		pstmt.setString(1,guest.getGuest_name());
+		pstmt.setString(2,guest.getGuest_email());
+		pstmt.setString(3,guest.getGuest_homepage());
+		pstmt.setString(4,guest.getGuest_title());
+		pstmt.setString(5,guest.getGuest_content());
 		int insertRowCount = pstmt.executeUpdate();
-		
-		return 0;
+		pstmt.close();
+		ConnectionFactory.releaseConnection(con);
+		return insertRowCount;
 	}
 
 	@Override
-	public Guest selectByNo(int no) {
-		// TODO Auto-generated method stub
-		return null;
+	public Guest selectByNo(int no) throws Exception {
+		Connection con = ConnectionFactory.getConnection(); //연결
+		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_SELECT_NO); //SQL문 담기
+		pstmt.setInt(1, no);  //pk 번호로 찾기
+		Guest findGuest = null; //리턴 게스트 담을 객체 
+		ResultSet rs = pstmt.executeQuery();  //실행 결과 담기?
+		if(rs.next()) {
+			findGuest = new Guest(rs.getInt("guest_no"),
+								  rs.getString("guest_name"),
+								  rs.getString("guest_date"),
+								  rs.getString("guest_email"),
+								  rs.getString("guest_homepage"),
+								  rs.getString("guest_title"),
+								  rs.getString("guest_content"));
+		}
+		rs.close();
+		pstmt.close();
+		ConnectionFactory.releaseConnection(con); //다 닫아주기
+		
+		return findGuest; // 리턴
 	}
 
 	@Override
@@ -51,7 +74,13 @@ public class GuestDaoImpl implements GuestDao{
 
 	@Override
 	public int updateGuest(Guest guest) throws Exception {
-		// TODO Auto-generated method stub
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_UPDATE);
+		pstmt.setString(1, x);
+		pstmt.setString(2, x);
+		pstmt.setString(3, x);
+		pstmt.setString(4, x);
+		pstmt.setString(5, x);
 		return 0;
 	}
 
