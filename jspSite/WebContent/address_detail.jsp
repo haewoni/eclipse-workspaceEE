@@ -22,7 +22,17 @@
 <h1>[<%=address.getName()%>님 주소록상세보기]</h1><hr>
 <div>
 	<a href='address_delete_action.jsp?no=<%=address.getNo()%>'>[<%=address.getName()%>님삭제[GET]]</a>
-	<a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName()%>님 주소록수정폼]</a>
+	<form method="POST" action="address_delete_action.jsp" >
+		<input type="hidden" name="no" value="<%=address.getNo()%>">
+		<input type="submit" value="<%=address.getName() %>님 삭제[POST]">
+	</form>
+	
+	<a href='address_update_form.jsp?no=<%=address.getNo()%>'>[<%=address.getName()%>님 주소록수정폼[GET]]</a>
+	<form method="POST" action="address_update_form.jsp" >
+		<input type="hidden" name="no" value="<%=address.getNo()%>">
+		<input type="submit" value="<%=address.getName() %>님 주소록수정폼[POST]">
+	</form>
+	
 	<a href='address_insert_form.jsp'>[주소록쓰기폼]</a>
 	<a href='address_list.jsp'>[주소록리스트]</a>
 </div>

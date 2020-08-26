@@ -2,12 +2,6 @@
 <%@page import="com.itwill.address.Address"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <%	
 	String noStr = request.getParameter("no");   //번호로 가져오기
 	if(noStr==null || noStr.equals("")) {
@@ -16,6 +10,12 @@
 	AddressService addressService = new AddressService();
 	Address address = addressService.selectByNo(Integer.parseInt(noStr));
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
 <h1>[김경호님 주소록 수정폼]</h1><hr>
 <hr>

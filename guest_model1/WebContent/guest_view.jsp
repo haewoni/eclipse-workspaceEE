@@ -64,23 +64,14 @@
 		<!-- header start -->
 		<div id="header">
 		<!-- include_common_top.jsp start-->
-			<h1>
-				<a href="">WEB SAMPLE SITE</a>
-			</h1>
+			<%@include file="include_common_top.jsp"%>
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
 		<!-- navigation start-->
 		<div id="navigation">
 			<!-- include_common_left.jsp start-->
-			<p>
-				<strong>메 뉴</strong>
-			</p>
-			<ul>
-				<li><a href="guest_list.jsp">방명록</a></li>
-				<li><a href="member_list.html">회원관리</a></li>
-				<li><a href="board_list.html">게시판</a></li>
-			</ul>
+		<%@include file="include_common_left.jsp"%>
 			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
@@ -103,7 +94,7 @@
 					</tr>
 				</table> <!-- view Form  -->
 				<form name="f" method="post">
-					<input type="hidden" name="guest_no" value="<%= %>" />
+					<input type="hidden" name="guest_no" value="<%=guest.getGuest_no() %>" />
 					<table border="0" cellpadding="0" cellspacing="1" width="590"
 						bgcolor="BBBBBB">
 						<tr>

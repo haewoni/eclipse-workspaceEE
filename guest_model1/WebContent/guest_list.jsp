@@ -18,6 +18,19 @@
 <link rel="stylesheet"
 	href="css/guest.css">
 <script	src="js/guest.js"></script>
+
+<script type="text/javascript">
+	function guestCreateForm() {
+		document.f.action='guest_write_form.jsp';
+		document.f.method='GET';
+		document.f.submit();
+	}
+
+
+</script>
+
+
+
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>

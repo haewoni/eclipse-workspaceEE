@@ -11,13 +11,15 @@ public class GuestService {
 	 * Create
 	 */
 	public int insertGuest(Guest guest) throws Exception{
-		return 0;
+		int insertGuest = guestDao.insertGuest(guest);
+		return insertGuest;
 	} 
 	/*
 	 * Read
 	 */
 	public Guest selectByNo(int no) throws Exception{
-		return null;
+		Guest selectByNo = guestDao.selectByNo(no);
+		return selectByNo;
 	}
 	public ArrayList<Guest> selectAll() throws Exception{
 		return guestDao.selectAll();
@@ -26,12 +28,14 @@ public class GuestService {
 	 * Update
 	 */
 	public int updateGuest(Guest guest) throws Exception{
-		return 0;
+		int updateGuest = guestDao.updateGuest(guest);
+		return updateGuest;
 	}
 	/*
 	 * Delete
 	 */
 	public int deleteGuest(int no) throws Exception{
-		return 0;
+		int deleteGuest = guestDao.deleteGuest(no);
+		return deleteGuest;
 	}
 }

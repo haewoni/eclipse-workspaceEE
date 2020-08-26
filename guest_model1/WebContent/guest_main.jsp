@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>방명록 관리</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="t ext/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/guest.css" type="text/css">
 <style type="text/css" media="screen">

@@ -47,6 +47,16 @@ public class Guest {
 		this.guest_title = guest_title;
 		this.guest_content = guest_content;
 	}
+	
+	
+	public Guest(String guest_name, String guest_homepage, String guest_title, String guest_content,int guest_no) {
+		super();
+		this.guest_no = guest_no;
+		this.guest_name = guest_name;
+		this.guest_homepage = guest_homepage;
+		this.guest_title = guest_title;
+		this.guest_content = guest_content;
+	}
 	public int getGuest_no() {
 		return guest_no;
 	}

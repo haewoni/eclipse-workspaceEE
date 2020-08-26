@@ -71,10 +71,16 @@ public class UserService {
 	/*
 	 * 회원탈퇴
 	 */
+	public int remove(String userId) throws Exception{
+		return userDao.remove(userId);
+	}
 	
 	/*
 	 * 회원수정
 	 */
+	public int update(User user) throws Exception {
+		return userDao.update(user);
+	}
 	
 	
 }

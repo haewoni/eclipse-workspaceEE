@@ -1,5 +1,8 @@
+<%@page import="com.itwill.guest.Guest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,13 +14,11 @@
 
 
 
-
-
 <link rel="stylesheet"
 	href="css/styles.css">
 <link rel="stylesheet"
 	href="css/guest.css">
-
+<!-- 
 <script type="text/javascript">
 	function guestWriteAction() {
 		if (document.f.guest_name.value == '') {
@@ -31,6 +32,7 @@
 		document.f.submit();
 	}
 </script>
+ -->
 
 
 
@@ -79,7 +81,7 @@
 							<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 							<td width=490 align="left" bgcolor="ffffff"
 								style="padding-left: 10px"><input type="text"
-								style="width: 150" name="guest_name"></td>
+								style="width: 150" name="guest_name" ></td>
 						</tr>
 						<tr>
 							<td width=100 align=center bgcolor="E6ECDE" height="22">이메일</td>
@@ -110,9 +112,9 @@
 				</form> <br />
 				<table width=590 border=0 cellpadding=0 cellspacing=0>
 					<tr>
-						<td align=center><input type="button" value="방명록쓰기"
-							onClick="guestCreate();"> &nbsp; <input type="button"
-							value="방명록목록" onClick="guestList()"></td>
+						<td align=center>
+						<input type="button" value="방명록쓰기"	onClick="guestCreate();"> &nbsp; 
+						<input type="button" value="방명록목록" onClick="guestList()"></td>
 					</tr>
 				</table>
 			</td>
