@@ -4,6 +4,9 @@
 <%@page import="com.itwill.user.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
+
 <%
 	if(request.getMethod().equalsIgnoreCase("GET")){
 		response.sendRedirect("user_write_form.jsp");
@@ -28,11 +31,19 @@
 		/*
 		<jsp:forward parth="user_write_form.jsp"/>
 		*/
+		/*
 		request.setAttribute("fuser", newUser);
 		request.setAttribute("msg", e.getMessage());
 		RequestDispatcher rd=
 				request.getRequestDispatcher("user_write_form.jsp");
 		rd.forward(request, response);
+		*/
+		/*************case2[정상응답]***************/
+	    out.println("<script>");
+	    out.println("alert('"+e.getMessage()+"');");
+	    out.println("location.href='user_write_form.jsp';");
+	    out.println("</script>");
+		/********************************************/
 		
 	}catch(Exception e){
 		e.printStackTrace();

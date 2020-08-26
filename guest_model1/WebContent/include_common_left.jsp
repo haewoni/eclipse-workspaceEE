@@ -1,15 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-
-<h1>
-	<a href="">WEB SAMPLE SITE</a>
-</h1>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>	
+<%
+   String sUserId=(String)session.getAttribute("sUserId");
+%>   		
 <p>
-	<strong>�� ��</strong>
+	<strong>메 뉴</strong>
 </p>
 <ul>
-	<li><a href="guest_list.jsp">����ϸ���Ʈ</a></li>
-	<li><a href="guest_write_form.jsp">����Ͼ���</a></li>
+		<%if(sUserId!=null){ %>	
+			<li><a href=""><%=sUserId%>님</a>&nbsp;<a href="user_logout_action.jsp">로그아웃</a></li>
+			<li><a href="user_list.jsp">회원리스트</a></li>
+		<%}else{ %>
+			<li><a href="user_login_form.jsp">로그인</a></li>
+			<li><a href="user_write_form.jsp">회원가입</a></li>
+		<%}%>
 </ul>

@@ -33,12 +33,16 @@ public class User {
 		this.name = name;
 		this.email = email;
 	}
-	public String getUserId() {
+	public String string() {
 		return userId;
 	}
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getUserId() {
+		return userId;
 	}
 
 	public String getPassword() {

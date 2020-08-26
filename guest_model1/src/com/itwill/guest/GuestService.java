@@ -12,7 +12,7 @@ public class GuestService {
 	 */
 	public int insertGuest(Guest guest) throws Exception{
 		return 0;
-	}
+	} 
 	/*
 	 * Read
 	 */

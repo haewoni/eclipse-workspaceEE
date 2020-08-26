@@ -1,5 +1,38 @@
+<%@page import="com.itwill.user.User"%>
+<%@page import="javax.jws.soap.SOAPBinding.Use"%>
+<%@page import="com.itwill.user.exception.UserNotFoundException"%>
+<%@page import="com.itwill.user.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ include file = "login_check.jspf"%>
+<%
+	String userId = request.getParameter("userId");
+	if(userId==null|| userId.equals("")){
+		response.sendRedirect("user_main.jsp");
+		/*
+		out.println("<script>");
+		out.println("alert('존재하지 않는 회원입니다.')");
+		out.println("history.back();");
+		out.println("</script>");
+		*/
+		return;
+	}
+	
+	User user = null;
+	
+	try{
+		UserService userService = new UserService();
+		user = userService.findUser(userId);
+	} catch (UserNotFoundException e) {
+		out.println("<script>");
+		out.println("alert('"+e.getMessage()+"');");
+		out.println("location.href='user_list.jsp';");
+		out.println("</script>");
+		return;    // 리턴 안하면 밑에 뿌리려고 함
+	}
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,27 +96,27 @@
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="userId" value="guard" />
+								<input type="hidden" name="userId" value="<%=user.getUserId() %>" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">사용자
 											아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											guard
+											<%=user.getUserId() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											김경호
+											<%=user.getName() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
 											주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10">
-											guard883@gmail.com
+											<%=user.getEmail() %>
 										</td>
 									</tr>
 								</table>

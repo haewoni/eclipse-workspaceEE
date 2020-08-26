@@ -76,18 +76,27 @@ public class GuestDaoImpl implements GuestDao{
 	public int updateGuest(Guest guest) throws Exception {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_UPDATE);
-		pstmt.setString(1, x);
-		pstmt.setString(2, x);
-		pstmt.setString(3, x);
-		pstmt.setString(4, x);
-		pstmt.setString(5, x);
-		return 0;
+		pstmt.setString(1, guest.getGuest_name());
+		pstmt.setString(2, guest.getGuest_email());
+		pstmt.setString(3, guest.getGuest_homepage());
+		pstmt.setString(4, guest.getGuest_title());
+		pstmt.setString(5, guest.getGuest_content());
+		pstmt.setInt(6, guest.getGuest_no());
+		int updateRowCount = pstmt.executeUpdate();
+		ConnectionFactory.releaseConnection(con);
+		pstmt.close();
+		return updateRowCount;
 	}
 
 	@Override
 	public int deleteGuest(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(GuestSQL.GUEST_DELETE);
+		pstmt.setInt(1, no);
+		int deleteRowCount = pstmt.executeUpdate();
+		pstmt.close();
+		ConnectionFactory.releaseConnection(con);
+		return deleteRowCount;
 	}
 
 }
