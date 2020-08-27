@@ -21,8 +21,8 @@ public class EncodingFilter implements Filter {
 	 */
 	public void init(FilterConfig filterConfig) throws ServletException {
 		this.encoding = filterConfig.getInitParameter("encoding");
-		//System.out.println("생성직후 단한번호출 init(): encoding parameter-->"
-		//			+ encoding);
+//		System.out.println("생성직후 단한번호출 init(): encoding parameter-->"
+//					+ encoding);
 	}
 	
 
@@ -30,12 +30,9 @@ public class EncodingFilter implements Filter {
 	 * ServletRequest객체에 web.xml에서 전달된 인코딩을 설정하는 메써드.
 	 */
 	public void doFilter(
-		ServletRequest request,
-		ServletResponse response,
-		FilterChain chain)
+		ServletRequest request,ServletResponse response, FilterChain chain)
 		throws IOException, ServletException {
-		//System.out.println("요청시마다 호출 doFilter()");
-
+//		System.out.println("요청시마다 호출 doFilter()");
 		if (request.getCharacterEncoding() == null) {
 			if (encoding != null) {
 				request.setCharacterEncoding(encoding);

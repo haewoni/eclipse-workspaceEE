@@ -13,7 +13,6 @@
 		return;
 	}
 	
-	request.setCharacterEncoding("UTF-8");
 	String userId=request.getParameter("userId");
 	String password=request.getParameter("password");
 	String name=request.getParameter("name");
@@ -28,17 +27,18 @@
 		/*
 		이동할려는 page로 데이타를 전달해야할때
 		*/
+		
 		/*
 		<jsp:forward parth="user_write_form.jsp"/>
 		*/
-		/*
+		
 		request.setAttribute("fuser", newUser);
 		request.setAttribute("msg", e.getMessage());
 		RequestDispatcher rd=
 				request.getRequestDispatcher("user_write_form.jsp");
 		rd.forward(request, response);
-		*/
-		/*************case2[정상응답]***************/
+		
+		/*************case2[정상응답]***************
 	    out.println("<script>");
 	    out.println("alert('"+e.getMessage()+"');");
 	    out.println("location.href='user_write_form.jsp';");
