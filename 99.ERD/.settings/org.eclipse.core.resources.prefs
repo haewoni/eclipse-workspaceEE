@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/board_member.ddl=UTF-8
+encoding//src/board_member_insert.sql=UTF-8
+encoding//src/board_member_select.sql=UTF-8
