@@ -15,10 +15,11 @@ import com.itwill.address.AddressService;
 /**
  * Servlet implementation class AddressDetailPrtc
  */
-@WebServlet("/address_detail_prtc")
+@WebServlet("/address_detail_prtc.do")
 public class AddressDetailPrtc extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out= response.getWriter();
 		
@@ -35,44 +36,47 @@ public class AddressDetailPrtc extends HttpServlet {
 		
 	
 	
-		int no = Integer.parseInt(request.getParameter("no"));
-	
+		String noStr = request.getParameter("no");
+		if(noStr==null||noStr.equals("")) {
+			response.sendRedirect("address_main.do");
+			return;
+		}
 			
-		try {
+	
 			AddressService addressService = new AddressService();
 			
 			Address address = new Address();
-				address = addressService.selectByNo(no);
+				address = addressService.selectByNo(Integer.parseInt(noStr));
 				
-			} catch (Exception e) {
 			
-				e.printStackTrace();
-			}
 			
 		out.print("<!DOCTYPE html>");
 		out.print("<html>");
 		out.print("<head>");
-		out.print("<meta charset="UTF-8">");
+		out.print("<meta charset='UTF-8'>");
 		out.print("<title>Insert title here</title>");
-		</head>
-		<body>
-		<h1>[김경호님 주소록상세보기]</h1><hr>
-		<div>
-			<a href='address_delete_action.do?no=1'>김경호님삭제[GET]</a>
-			<a href='address_update_form.do'>[김경호님 주소록수정폼]</a>
-			<a href='address_insert_form.do'>[주소록쓰기폼]</a>
-			<a href='address_list.do'>[주소록리스트]</a>
-		</div>
-		<p>
-			번호:1<br>
-			아이디:guard<br>
-			이름:김경호<br>
-			전화:123-4568<br>
-			주소:경기도 성남시<br>
-		</p>
-		</body>
-		</html>
-		
+		out.print("</head>");
+		out.print("<body>");
+		out.print("<h1>["+address.getName()+"님 주소록상세보기]</h1><hr>");
+		out.print("<div>");
+		out.print("	<a href='address_delete_action.do?no="+noStr+">"+address.getName()+"님삭제[GET]</a>z");
+		out.print("	<a href='address_update_form.do'>["+address.getName()+"님 주소록수정폼]</a>");
+		out.print("	<a href='address_insert_form.do'>[주소록쓰기폼]</a>");
+		out.print("	<a href='address_list.do'>[주소록리스트]</a>");
+		out.print("</div>");
+		out.print("<p>");
+		out.print("	번호:"+noStr+"<br>");
+		out.print("	아이디:"+address.getId()+"<br>");
+		out.print("	이름:"+address.getName()+"<br>");
+		out.print("	전화:"+address.getPhone()+"<br>");
+		out.print("	주소:"+address.getAddress()+"<br>");
+		out.print("</p>");
+		out.print("</body>");
+		out.print("</html>");
+		} catch (Exception e) {
+			response.sendRedirect("address_error.html");
+			e.printStackTrace();
+		}
 		
 	}
 		
