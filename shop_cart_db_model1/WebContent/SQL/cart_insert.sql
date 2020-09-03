@@ -8,10 +8,22 @@ insert into product2 values(product2_p_no_SEQ.nextval, '달마시안', 500000, '
 insert into product2 values(product2_p_no_SEQ.nextval, '퍼그', 400000, 'pug.gif','기타 상세 정보 등...', 0);
 insert into product2 values(product2_p_no_SEQ.nextval, '페키니즈', 450000, 'pekiniz.gif','기타 상세 정보 등...', 0);
 select * from product2;
-/*
-INSERT INTO cart1 
+
+/***********guard1****************/
+INSERT INTO cart2
 (cart_itemno, userId, p_no, cart_qty, cart_tot_price) 
 VALUES 
-(cart1_cart_itemno_SEQ.nextval, userId, p_no, 0, 0);
-*/
+(cart2_cart_itemno_SEQ.nextval, 'guard1', 1, 2, 550000*2);
+
+INSERT INTO cart2
+(cart_itemno, userId, p_no, cart_qty, cart_tot_price) 
+VALUES 
+(cart2_cart_itemno_SEQ.nextval, 'guard1', 2, 1, 500000);
+
+/***********guard2****************/
+INSERT INTO cart2
+(cart_itemno, userId, p_no, cart_qty, cart_tot_price) 
+VALUES 
+(cart2_cart_itemno_SEQ.nextval, 'guard2', 3, 1, 400000);
+
 commit;
