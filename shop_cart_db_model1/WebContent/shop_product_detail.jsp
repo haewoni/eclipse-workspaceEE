@@ -40,7 +40,7 @@
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
 		} else {
-			location.href = 'shop_buy.jsp';
+			location.href = 'shop_jumun_create_form.jsp';
 		}
 	}
 	function productList() {
