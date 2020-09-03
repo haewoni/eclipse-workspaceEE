@@ -1,11 +1,9 @@
-
-
-
-
-
-
-
-
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.shop.product.Product"%>
+<%@page import="com.itwill.shop.product.ProductService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,6 +15,11 @@
 <style type="text/css" media="screen">
 </style>
 </head>
+<%
+	ProductService productService = new ProductService();
+	ArrayList<Product> productList = productService.getProductList();
+
+%>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
 	<!-- container start-->
@@ -24,14 +27,14 @@
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp"/>
+				<jsp:include page="include_common_top.jsp"></jsp:include>
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
 		<!-- navigation start-->
 		<div id="navigation">
 			<!-- include_common_left.jsp start-->
-			<jsp:include page="include_common_left.jsp"/>
+				<jsp:include page="include_common_left.jsp"/>
 			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
@@ -57,36 +60,18 @@
 									cellpadding="3" bordercolordark="white"
 									bordercolorlight="#556b2f">
 									<tr>
-										
+								<%for(Product p: productList) {%>
 										<!--상품시작  -->
 										<td align="center" width="25%"><a
-											href="shop_product_detail.jsp?p_no=1"><img
-												src="image/bigle.gif" border="0"></a><br /> <br />
-											<b>견종:비글</b><br> <font color="#FF0000">가격:550,000원
+											href="shop_product_detail.jsp?p_no=<%=p.getP_no()%>"><img
+												src="image/<%=p.getP_image()%>".gif" border="0"></a><br /> <br />
+											<b>견종:<%=p.getP_name()%></b><br> <font color="#FF0000">가격:<%=p.getP_price() %>원
 										</font></td>
 										<!-- 상품 끝 -->
-
-										<td align="center" width="25%"><a
-											href="shop_product_detail.jsp?p_no=2"><img
-												src="image/dalma.gif" border="0"></a><br /> <br />
-											<b>견종:달마시안</b><br> <font color="#FF0000">가격:500,000원
-										</font></td>
 										
-
-										<td align="center" width="25%"><a
-											href="shop_product_detail.jsp?p_no=3"><img
-												src="image/pug.gif" border="0"></a><br /> <br />
-											<b>견종:퍼그</b><br> <font color="#FF0000">가격:400,000원
-										</font></td>
-										
-
-										<td align="center" width="25%"><a
-											href="shop_product_detail.jsp?p_no=4"><img
-												src="image/pekiniz.gif" border="0"></a><br /> <br />
-											<b>견종:페키니즈</b><br> <font color="#FF0000">가격:450,000원
-										</font></td>
-										
+								<%} %>
 									</tr>
+								<br/>
 								</table>
 							</form> <br /></td>
 					</tr>
@@ -98,7 +83,7 @@
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			
+				<jsp:include page="include_common_bottom.jsp"></jsp:include>
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>

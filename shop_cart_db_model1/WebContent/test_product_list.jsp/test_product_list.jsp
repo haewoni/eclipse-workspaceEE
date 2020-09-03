@@ -15,4 +15,3 @@
 <%for(Product p:productList){ %>
 	<%=p %><br/>
 <%}%>
-ㄴ
