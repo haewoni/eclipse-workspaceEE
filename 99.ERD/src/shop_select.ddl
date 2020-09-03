@@ -20,6 +20,7 @@
  on u.user_id=j.user_id and u.user_id='guard1' 
  and to_char(j.jumun_date,'YYYY/MM/DD')='2020/09/02'
  where j.jumun_no=3001;
+ 
 -- 4. 주문 한 개의 제품 여러개 정보들(주문 상세,제품)
 
 /*************************관리자***************************/
@@ -38,8 +39,11 @@ where j.jumun_no=3004;
 
 
 -- 5. 주문 한 개의 주문자정보 & 제품 여러개 정보들(주문상세)
-
-/*********************************************************/
+select *
+from user1 u
+join jumun1 j
+on u.user_id =j.user_id 
+where j.jumun_no=
 
 
  
