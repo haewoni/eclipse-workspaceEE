@@ -26,7 +26,7 @@ public class UserDao  {
 	public int create(User user) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String insertQuery = "insert into user1 values(?,?,?,?)";
+		String insertQuery = "insert into user2 values(?,?,?,?)";
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(insertQuery);
@@ -50,7 +50,7 @@ public class UserDao  {
 	public int update(User user) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String updateQuery = "update user1 set password=?,name=?,email=? where userid=?";
+		String updateQuery = "update user2 set password=?,name=?,email=? where userid=?";
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(updateQuery);
@@ -74,7 +74,7 @@ public class UserDao  {
 	public int remove(String userId) throws Exception {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String removeQuery = "delete from user1 where userid=?";
+		String removeQuery = "delete from user2 where userid=?";
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(removeQuery);
@@ -98,7 +98,7 @@ public class UserDao  {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String selectQuery = "select userid,password,name,email from user1 where userid=?";
+		String selectQuery = "select userid,password,name,email from user2 where userid=?";
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(selectQuery);
@@ -128,7 +128,7 @@ public class UserDao  {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String selectQuery = "select userid,password,name,email from user1";
+		String selectQuery = "select userid,password,name,email from user2";
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(selectQuery);
@@ -157,7 +157,7 @@ public class UserDao  {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String existedQuery="select count(*) cnt from user1" +
+		String existedQuery="select count(*) cnt from user2" +
 							" where userid=?";
 		try{
 			con=dataSource.getConnection();
