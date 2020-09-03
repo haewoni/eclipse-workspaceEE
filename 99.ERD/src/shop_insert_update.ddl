@@ -56,7 +56,7 @@ VALUES (3004, '테슬라 외 1종', sysdate, 1053990, 'guard1');
 INSERT INTO jumun_detail1 (jumun_detail_no, jumun_no, product_no, jumun_detail_count) 
 VALUES (5007, 3004, 1005, 1);
 INSERT INTO jumun_detail1 (jumun_detail_no, jumun_no, product_no, jumun_detail_count) 
-VALUES (5007, 3004, 1006, 1);
+VALUES (5008, 3004, 1006, 1);
 commit;
 
 
