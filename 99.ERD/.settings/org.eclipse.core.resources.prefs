@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/board_member_insert.sql=UTF-8
 encoding//src/board_member_select.sql=UTF-8
+encoding//src/shop.ddl=UTF-8
+encoding//src/shop_insert_update_delete.ddl=UTF-8
+encoding/<project>=UTF-8
