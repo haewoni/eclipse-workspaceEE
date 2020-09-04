@@ -1,11 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.product.ProductService"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:include page="login_check.jspf"/>
 
 <%
+	if(request.getMethod().equalsIgnoreCase("GET")) {
+		response.sendRedirect("shop_main.jsp");
+		return;
+	}
+	/*
+	파라메타 받기(cart_qty,p_no)
+	*/
+	String cart_qtyStr = request.getParameter("cart_qty");
+	String p_noStr = request.getParameter("p_qty");
 	
 	//장바구니에 개를담고 view_cart.jsp 로 redirection...
 	

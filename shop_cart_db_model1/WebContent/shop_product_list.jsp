@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.itwill.shop.product.Product"%>
@@ -60,12 +61,17 @@
 									cellpadding="3" bordercolordark="white"
 									bordercolorlight="#556b2f">
 									<tr>
-								<%for(Product p: productList) {%>
+										<%
+										DecimalFormat decimalFormat = new DecimalFormat();
+										decimalFormat.applyPattern("#,##0");
+										for(Product p: productList) {
+										%>
 										<!--상품시작  -->
 										<td align="center" width="25%"><a
 											href="shop_product_detail.jsp?p_no=<%=p.getP_no()%>"><img
 												src="image/<%=p.getP_image()%>".gif" border="0"></a><br /> <br />
-											<b>견종:<%=p.getP_name()%></b><br> <font color="#FF0000">가격:<%=p.getP_price() %>원
+											<b>견종:<%=p.getP_name()%></b><br> 
+											<font color="#FF0000">가격:<%=decimalFormat.format(p.getP_price()) %>원
 										</font></td>
 										<!-- 상품 끝 -->
 										

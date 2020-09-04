@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,17 +6,17 @@
 
 
 <%
-	String p_no = request.getParameter("p_no");
-	if(p_no==null || p_no.equals("")) {
-		response.sendRedirect("shop_product_list.jsp");
+	String p_noStr = request.getParameter("p_no");
+	if(p_noStr==null || p_noStr.equals("")) {
+		response.sendRedirect("shop_product_list.jsp"); 
 		return;
 	}
 	ProductService productService = new ProductService();
-	Product product = productService.getProduct(Integer.parseInt(p_no));
+	Product product = productService.getProduct(Integer.parseInt(p_noStr));
 	
 	if(product==null){
 		out.println("<script>");
-		out.println("alert('존재하지 않는 게시물입니다.')");
+		out.println("alert('매진된 상품입니다.');");
 		out.println("history.back();");
 		out.println("</script>");
 		return;
@@ -32,7 +33,7 @@
 </style>
 <script type="text/javascript">
 	function addCart() {
-		location.href = 'shop_view_cart.jsp'
+		location.href = 'shop_add_cart.jsp'
 	}
 	
 	function buy() {
@@ -103,16 +104,17 @@
 											마리 <br /> <br /> 
 											<input type=submit value=장바구니에담기	class=TXTFLD />
 												 <input type="hidden" name=p_no
-												value="<%=product.getP_no()%>" 
-												onClick="addCart()">
+												value="<%=product.getP_no()%>">
 										</form>
 									</td>
+									<%DecimalFormat decimalFormat = new DecimalFormat();
+									  decimalFormat.applyPattern("#,##0");%>
 									<td width=40% height=200 align=center><img border=0
 										src=image/<%=product.getP_image() %> width=120 height=200></td>
 									<td width=30% height=200 class=t1>
 										<ol type="disc">
 											<li><b>견종 : <%=product.getP_name() %>&nbsp;&nbsp;&nbsp;</b></li>
-											<li><font color=#FF0000>가격 : <%=product.getP_price() %>
+											<li><font color=#FF0000>가격 : <%=decimalFormat.format(product.getP_price()) %>
 													&nbsp;&nbsp;&nbsp;</font></li>
 											<li><font color=#0000FF><%=product.getP_desc() %>&nbsp;&nbsp;</font></li>
 										</ol>
