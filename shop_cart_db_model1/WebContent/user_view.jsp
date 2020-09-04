@@ -5,7 +5,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %> 
 <%
-
 	User user=null;
 	try{
 		UserService userService=new UserService();
@@ -28,7 +27,7 @@
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
 <script type="text/javascript">
-
+	
 	function userModifyForm() {
 		document.f.action = "user_modify_form.jsp";
 		document.f.method='POST';
@@ -107,8 +106,9 @@
 							</form> <br />
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center><input type="button" value="수정" onClick="userModifyForm()"> &nbsp; 
-										<input type="button" value="탈퇴" onClick="userRemove()"> 
+									<td align=center>
+									 <input type="button" value="수정" onClick="userModifyForm()"> &nbsp; 
+									 <input type="button" value="탈퇴" onClick="userRemove()">
 								</tr>
 							</table>
 						</td>

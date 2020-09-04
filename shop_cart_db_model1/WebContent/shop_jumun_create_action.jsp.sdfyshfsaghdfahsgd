@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	/*
+	주문생성
+	  - 주문테이블 insert
+	  - 주문상세테이블 insert
+	*/
+
+%>

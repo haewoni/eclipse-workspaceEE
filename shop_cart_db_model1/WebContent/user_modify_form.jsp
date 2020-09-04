@@ -2,18 +2,15 @@
 <%@page import="com.itwill.user.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
-<%@ include file = "login_check.jspf"%>
+<%@ include file="login_check.jspf" %>  
 <%
-	if(request.getMethod().equalsIgnoreCase("GET")) {
+	if(request.getMethod().equalsIgnoreCase("GET")){
 		response.sendRedirect("user_main.jsp");
 		return;
 	}
-	String userId=request.getParameter("userId");
 	UserService userService=new UserService();
-	User user=userService.findUser(userId);
-			
+	User user=userService.findUser(sUserId);
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,9 +21,10 @@
 <link rel=stylesheet href="css/user.css" type="text/css">
 <script type="text/javascript">
 	function userModify() {
-		f.action = "user_modify_action.jsp";
+		document.f.action = "user_modify_action.jsp";
 		document.f.method='POST';
-		f.submit();
+		document.f.submit();
+		
 	}
 	function userList() {
 		/*
@@ -80,7 +78,7 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">사용자
 											아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><%=user.getUserId() %></td>
+											align="left"><%=user.getUserId()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
