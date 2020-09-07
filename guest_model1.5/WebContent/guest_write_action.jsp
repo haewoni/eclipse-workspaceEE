@@ -17,7 +17,7 @@
 		- 실패:guest_error.jsp로 redirection
     */
 	if(request.getMethod().equalsIgnoreCase("GET")){
-		response.sendRedirect("guest_write_form.jsp");
+		response.sendRedirect("guest_write_form.do");
 		return;
 	}
 	try{
@@ -35,10 +35,10 @@
 		GuestService guestService=new GuestService();
 		int insertRowCount=
 				guestService.insertGuest(guest);
-		response.sendRedirect("guest_list.jsp");
+		response.sendRedirect("guest_list.do");
 	}catch(Exception e){
 		e.printStackTrace();
-		response.sendRedirect("guest_error.jsp");
+		response.sendRedirect("guest_error.do");
 	}
 	
 %>
