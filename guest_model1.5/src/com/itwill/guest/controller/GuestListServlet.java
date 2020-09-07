@@ -24,9 +24,10 @@ public class GuestListServlet extends HttpServlet {
 		try {
 			GuestService guestService=new GuestService();
 			ArrayList<Guest> guestList=guestService.selectAll();
+			
 			request.setAttribute("guestList", guestList);
 			
-			forwardPath="forward:guest_guest.jsp";
+			forwardPath="forward:guest_list.jsp";
 		}catch (Exception e) {
 			e.printStackTrace();
 			forwardPath="forward:guest_error.jsp";

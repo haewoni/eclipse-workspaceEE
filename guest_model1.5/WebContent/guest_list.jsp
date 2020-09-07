@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	ArrayList<Guest> guestList = (ArrayList<Guest>)request.getAttribute("");
+	ArrayList<Guest> guestList = (ArrayList<Guest>)request.getAttribute("guestList");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -69,7 +69,7 @@
 					<tr>
 						<td width=50 align=center bgcolor="ffffff" height="20"><%=guest.getGuest_no()%></td>
 						<td width=300 bgcolor="ffffff" style="padding-left: 10"><a
-							href="guest_view.jsp?guest_no=<%=guest.getGuest_no()%>" class="user">
+							href="guest_view.do?guest_no=<%=guest.getGuest_no()%>" class="user">
 								<%=guest.getGuest_title()%>
 						</a></td>
 						<td width=120 align=center bgcolor="ffffff"><%=guest.getGuest_name()%></td>
