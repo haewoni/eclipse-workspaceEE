@@ -1,4 +1,3 @@
-
 <%@page import="com.itwill.Student"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -23,7 +22,7 @@
 </head>
 <body>
 <h1>SCOPE객체</h1>
-
+<hr>
 <ol>
 	<li>page:<%=pageContext.getAttribute("pageStudent")%></li>
 	<li>request:<%=request.getAttribute("requestStudent")%></li>
@@ -36,7 +35,8 @@ include
 <jsp:include page="8-1.default_scope_request.jsp"></jsp:include>
 <hr/>
 include
-<a href='8-1.default_scope_page_session_application.jsp'>8-1.default_scope_page_session_application.jsp</a><br/>
+<br/>
+<a href='8-1.default_scope_page_session_application1.jsp'>8-1.default_scope_page_session_application1.jsp</a><br/>
 
 </body>
 </html>
