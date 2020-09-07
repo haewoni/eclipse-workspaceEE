@@ -102,7 +102,7 @@
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			<jsp:include page="include_common_left.jsp"/>
+			<jsp:include page="include_common_bottom.jsp"/>
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>
