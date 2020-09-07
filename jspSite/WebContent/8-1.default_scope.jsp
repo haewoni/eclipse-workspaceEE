@@ -1,19 +1,19 @@
 
-<%--@page import="com.itwill.student.Student"--%>
+<%@page import="com.itwill.Student"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	/*
-	Student pageSt=new Student();
-	Student requestSt=new Student();
-	Student sessionSt=new Student();
-	Student applicationSt=new Student();
+	
+	Student pageStudent=new Student();
+	Student requestStudent=new Student();
+	Student sessionStudent=new Student();
+	Student applicationStudent=new Student();
 
-	pageContext.setAttribute("pageSt", pageSt);	   				//page
-	request.setAttribute("requestSt", requestSt);  				//request
-	session.setAttribute("sessionSt", sessionSt); 				//session
-	application.setAttribute("applicationSt", applicationSt);	//application
-	*/
+	pageContext.setAttribute("pageStudent", pageStudent);	   				//page
+	request.setAttribute("requestStudent", requestStudent);  				//request
+	session.setAttribute("sessionStudent", sessionStudent); 				//session
+	application.setAttribute("applicationStudent", applicationStudent);	    //application
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,10 +25,10 @@
 <h1>SCOPE객체</h1>
 
 <ol>
-	<li>page:<%=pageContext.getAttribute("pageSt")%></li>
-	<li>request:<%=request.getAttribute("requestSt")%></li>
-	<li>session:<%=session.getAttribute("sessionSt")%></li>
-	<li>application:<%=application.getAttribute("applicationSt")%></li>
+	<li>page:<%=pageContext.getAttribute("pageStudent")%></li>
+	<li>request:<%=request.getAttribute("requestStudent")%></li>
+	<li>session:<%=session.getAttribute("sessionStudent")%></li>
+	<li>application:<%=application.getAttribute("applicationStudent")%></li>
 </ol> 
 <br/>
 include
