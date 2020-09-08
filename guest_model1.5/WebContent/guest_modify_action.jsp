@@ -12,7 +12,7 @@
 	  실패-->guest_error.jsp redirection
 	*/
 	if(request.getMethod().equalsIgnoreCase("GET")){
-		response.sendRedirect("guest_main.jsp");
+		response.sendRedirect("guest_main.do");
 		return;
 	}
 	try{
@@ -30,10 +30,10 @@
 								guest_name,null,
 								guest_email,guest_homepage,
 								guest_title,guest_content));
-		response.sendRedirect("guest_view.jsp?guest_no="+guest_noStr);
+		response.sendRedirect("guest_view.do?guest_no="+guest_noStr);
 	}catch(Exception e){
 		e.printStackTrace();
-		response.sendRedirect("guest_error.jsp");
+		response.sendRedirect("guest_error.do");
 	}
 	
 %>

@@ -9,16 +9,16 @@
       실패 -->guest_error.jsp redirection
 	*/
 	if(request.getMethod().equalsIgnoreCase("GET")){
-		response.sendRedirect("guest_main.jsp");
+		response.sendRedirect("guest_main.do");
 		return;
 	}
     try{
 	    String guest_noStr = request.getParameter("guest_no");
 	    GuestService guestService=new GuestService();
 	    guestService.deleteGuest(Integer.parseInt(guest_noStr));
-	    response.sendRedirect("guest_list.jsp");
+	    response.sendRedirect("guest_list.do");
     }catch(Exception e){
     	e.printStackTrace();
-    	response.sendRedirect("guest_error.jsp");
+    	response.sendRedirect("guest_error.do");
     }
 %>
