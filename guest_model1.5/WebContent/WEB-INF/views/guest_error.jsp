@@ -13,7 +13,7 @@
 	<br>
 	<br>
 	<center>
-		<table width="400" border="0" cellspacing="0" cellpadding="0"> 
+		<table width="400" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td><img
 					src="http://image.gmarket.co.kr/challenge/neo_image/customcenter_img2/pop_up03.gif"
