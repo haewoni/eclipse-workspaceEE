@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GuestErrorServlet
  */
-//@WebServlet("/guest_error.do")
+@WebServlet("/guest_error.do")
 public class GuestErrorServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forwardPath="forward:guest_error.jsp";
+		String forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 		//String forwardPath="redirect:guest_error.jsp";
 		
 		String [] pathArray = forwardPath.split(":");

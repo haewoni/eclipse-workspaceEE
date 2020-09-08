@@ -15,7 +15,7 @@ import com.itwill.guest.GuestService;
 /**
  * Servlet implementation class GuestModifyFormServlet
  */
-@WebServlet("/guest_modify_form.do")
+//@WebServlet("/guest_modify_form.do")
 public class GuestModifyFormServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,10 +37,10 @@ public class GuestModifyFormServlet extends HttpServlet {
 				Guest guest=
 						guestService.selectByNo(Integer.parseInt(guest_noStr));
 				request.setAttribute("guest", guest);
-				forwardPath="forward:/WEB-INF/views/guest_modify_form.jsp";
+				forwardPath="forward:guest_modify_form.jsp";
 			}catch (Exception e) {
 				e.printStackTrace();
-				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
+				forwardPath="forward:guest_error.jsp";
 			}
 		}
 

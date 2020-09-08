@@ -16,7 +16,7 @@ import com.itwill.guest.GuestService;
 /**
  * Servlet implementation class GuestListServlet
  */
-//@WebServlet("/guest_list.do")
+@WebServlet("/guest_list.do")
 public class GuestListServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String forwardPath="";
@@ -27,10 +27,10 @@ public class GuestListServlet extends HttpServlet {
 			
 			request.setAttribute("guestList", guestList);
 			
-			forwardPath="forward:guest_list.jsp";
+			forwardPath="forward:/WEB-INF/views/guest_list.jsp";
 		}catch (Exception e) {
 			e.printStackTrace();
-			forwardPath="forward:guest_error.jsp";
+			forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 					
 		}
 		

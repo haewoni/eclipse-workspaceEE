@@ -15,7 +15,7 @@ import com.itwill.guest.GuestService;
 /**
  * Servlet implementation class GuestWriteActionServlet
  */
-//@WebServlet("/guest_write_action.do")
+@WebServlet("/guest_write_action.do")
 public class GuestWriteActionServlet extends HttpServlet {
 	
 	
@@ -43,12 +43,12 @@ public class GuestWriteActionServlet extends HttpServlet {
 				int insertRowCount=
 						guestService.insertGuest(guest);
 				//response.sendRedirect("guest_list.do");
-				forwardPath="forward:guest_list.do";				
+				forwardPath="forward:/WEB-INF/views/guest_list.do";				
 				
 			}catch(Exception e){
 				e.printStackTrace();
 //				response.sendRedirect("guest_error.jsp");
-				forwardPath="forward:guest_error.jsp";
+				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 			}
 		}
 		

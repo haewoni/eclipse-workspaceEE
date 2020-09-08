@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GuestWriteFormServlet
  */
-//@WebServlet("/guest_write_form.do")
+@WebServlet("/guest_write_form.do")
 public class GuestWriteFormServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forwardPath="forward:guest_write_form.jsp";
+		String forwardPath="forward:/WEB-INF/views/guest_write_form.jsp";
 		//String forwardPath="redirect:guest_write_form.jsp";
 		
 		String [] pathArray = forwardPath.split(":");

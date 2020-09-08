@@ -1,6 +1,7 @@
 package com.itwill.guest.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,14 +10,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itwill.guest.Guest;
+import com.itwill.guest.GuestService;
+
 /**
- * Servlet implementation class GuestWriteFormServlet
+ * Servlet implementation class GuestListServlet
  */
-@WebServlet("/guest_write_form.do")
-public class GuestWriteFormServlet extends HttpServlet {
+//@WebServlet("/guest_list.do")
+public class GuestListServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forwardPath="forward:/WEB-INF/views/guest_write_form.jsp";
-		//String forwardPath="redirect:guest_write_form.jsp";
+		String forwardPath="";
+		//String forwardPath="redirect:guest_list.jsp";
+		try {
+			GuestService guestService=new GuestService();
+			ArrayList<Guest> guestList=guestService.selectAll();
+			
+			request.setAttribute("guestList", guestList);
+			
+			forwardPath="forward:guest_list.jsp";
+		}catch (Exception e) {
+			e.printStackTrace();
+			forwardPath="forward:guest_error.jsp";
+					
+		}
+		
 		
 		String [] pathArray = forwardPath.split(":");
 		String forwardOrRedirect=pathArray[0];
