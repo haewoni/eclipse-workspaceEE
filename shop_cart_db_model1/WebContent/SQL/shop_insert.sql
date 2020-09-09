@@ -8,7 +8,7 @@ insert into product2 values(product2_p_no_SEQ.nextval, '비글', 550000, 'bigle.
 insert into product2 values(product2_p_no_SEQ.nextval, '달마시안', 500000, 'dalma.gif','기타 상세 정보 등...', 0);
 insert into product2 values(product2_p_no_SEQ.nextval, '퍼그', 400000, 'pug.gif','기타 상세 정보 등...', 0);
 insert into product2 values(product2_p_no_SEQ.nextval, '페키니즈', 450000, 'pekiniz.gif','기타 상세 정보 등...', 0);
-select * from product2;
+
 
 /**********************cart2 insert************************/
 /*****guard1****/
@@ -27,32 +27,37 @@ INSERT INTO cart2
 (cart_itemno, userId, p_no, cart_qty, cart_tot_price) 
 VALUES 
 (cart2_cart_itemno_SEQ.nextval, 'guard2', 3, 1, 400000);
-
-
-/**********************guard1 jumun2 insert 11111************************/
+commit;
+/**********************jumun2 insert************************/
+/***guard1 jumun2 insert 주문1***/
 INSERT INTO jumun2 (j_no, j_desc, j_date, j_price, userId) 
-VALUES (jumun2_j_no_SEQ.nextval, '비글 외 2종', sysdate, 1050000, 'guard1');
-/**********************guard1 jumun detail2 insert 11111************************/
-INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
-VALUES (jumun2_jd_no_SEQ.nextval, 2, '비글', 550000, jumun2_j_no_SEQ.currval, 1);
-INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
-VALUES (jumun2_jd_no_SEQ.nextval, 1, '달마시안', 500000, jumun2_j_no_SEQ.currval, 2);
+VALUES (jumun2_j_no_SEQ.nextval, '비글외2종', sysdate, 1600000, 'guard1');
 
+/***guard1 jumun_detail2 insert 주문1*****/
+INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
+VALUES (jumun_detail2_jd_no_SEQ.nextval, 2, '비글', 1100000, jumun2_j_no_SEQ.currval, 1);
 
-/**********************guard1 jumun2 insert 22222************************/
+INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
+VALUES (jumun_detail2_jd_no_SEQ.nextval, 1, '달마시안', 500000, jumun2_j_no_SEQ.currval,2);
+
+/***guard1 jumun2 insert 주문2***/
 INSERT INTO jumun2 (j_no, j_desc, j_date, j_price, userId) 
-VALUES (jumun2_j_no_SEQ.nextval, '달마시안 외 0종', sysdate, 500000, 'guard1');
-/**********************guard1 jumun detail2 insert 222222************************/
+VALUES (jumun2_j_no_SEQ.nextval, '달마시안외0종', sysdate, 500000, 'guard1');
+/***guard1 jumun_detail2 insert 주문2*****/
 INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
-VALUES (jumun2_jd_no_SEQ.nextval, 1, '달마시안', 500000, jumun2_j_no_SEQ.currval, 2);
+VALUES (jumun_detail2_jd_no_SEQ.nextval, 1, '달마시안', 500000, jumun2_j_no_SEQ.currval, 2);
 
 
 
-/**********************guard2 jumun2 insert************************/
-INSERT INTO jumun2 (j_no, j_desc, j_date, j_price, userId) VALUES (jumun2_j_no_SEQ.nextval, '퍼그 외 0종', sysdate, 400000, 'guard2');
+/***guard2 jumun2 insert***/
+INSERT INTO jumun2 (j_no, j_desc, j_date, j_price, userId) 
+VALUES (jumun2_j_no_SEQ.nextval, '퍼그외0종', sysdate, 400000, 'guard2');
 
-/**********************guard2 jumun detail2 insert************************/
-INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) VALUES (jumun2_jd_no_SEQ.nextval, 1, '퍼그', 400000, jumun2_j_no_SEQ.currval, 3);
+INSERT INTO jumun_detail2 (jd_no, jd_qty, jd_pname, jd_tot_price, j_no, p_no) 
+VALUES (jumun_detail2_jd_no_SEQ.nextval, 1, '퍼그', 400000, jumun2_j_no_SEQ.currval, 3);
+
+
+
 
 commit;
 

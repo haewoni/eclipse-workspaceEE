@@ -12,7 +12,7 @@ public class CalendarDateMain {
 		long startTime = System.currentTimeMillis();
 		
 		System.out.println("-------Calendar.get---------");
-		Calendar cal1 = Calendar.getInstance();
+		Calendar cal1 = Calendar.getInstance(); 
 		System.out.println(cal1);
 		int year = cal1.get(Calendar.YEAR);
 		int month = cal1.get(Calendar.MONTH);
