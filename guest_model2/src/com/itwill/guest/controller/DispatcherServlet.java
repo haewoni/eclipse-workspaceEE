@@ -60,12 +60,13 @@ public class DispatcherServlet extends HttpServlet {
 		 * 2.클라이언트의 요청에 따른 업무실행(XXSercive)
 		 */
 		String forwardPath="";
+		/***************************guest_main*******************************/
 		if(command.equals("/guest_main.do")) {
 			forwardPath="forward:/WEB-INF/views/guest_main.jsp";
-			
+		/***************************guest_write_form*******************************/
 		}else if(command.equals("/guest_write_form.do")) {
 			forwardPath="forward:/WEB-INF/views/guest_write_form.jsp";	
-			
+		/***************************guest_list*******************************/
 		}else if(command.equals("/guest_list.do")) {
 			try {
 				GuestService guestService=new GuestService();
@@ -76,14 +77,12 @@ public class DispatcherServlet extends HttpServlet {
 				e.printStackTrace();
 				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 			}
-			
-			
+		/***************************guest_view*******************************/
 		}else if(command.equals("/guest_view.do")) {
 			String guest_noStr = request.getParameter("guest_no");
-//			if(guest_noStr==null||guest_noStr.equals("")){
-////				response.sendRedirect("guest_list.jsp");
-//				forwardPath="redirect:guest_list.do";
-//			}else {
+			if(guest_noStr==null||guest_noStr.equals("")){
+				forwardPath="redirect:guest_list.do";
+			}else {
 				try {
 					GuestService guestService=new GuestService();
 					Guest guest=
@@ -94,8 +93,8 @@ public class DispatcherServlet extends HttpServlet {
 					e.printStackTrace();
 					forwardPath = "forward:/WEB-INF/views/guest_error.jsp";
 				}
-				
-				
+			}
+		/***************************guest_write_action*******************************/
 		}else if(command.equals("/guest_write_action.do")) {
 			if(request.getMethod().equalsIgnoreCase("GET")){
 				//response.sendRedirect("guest_write_form.do");
@@ -117,19 +116,20 @@ public class DispatcherServlet extends HttpServlet {
 					int insertRowCount=
 							guestService.insertGuest(guest);
 					//response.sendRedirect("guest_list.do");
-					forwardPath="forward:/WEB-INF/views/guest_list.do";				
+					forwardPath="redirect:guest_list.do";				
 					
 				}catch(Exception e){
 					e.printStackTrace();
 //					response.sendRedirect("guest_error.jsp");
 					forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 				}
-			}	
-					
-			
+			}
+		/***************************guest_modify_form*******************************/
 		}else if(command.equals("/guest_modify_form.do")) {
 			if(request.getMethod().equalsIgnoreCase("GET")){
+//				response.sendRedirect("guest_main.jsp");
 				forwardPath="redirect:guest_main.do";
+				
 			}else {
 				try {
 					String guest_noStr = request.getParameter("guest_no");
@@ -143,12 +143,12 @@ public class DispatcherServlet extends HttpServlet {
 					forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 				}
 			}
-			
-			
+
+		/***************************guest_modify_action*******************************/
 		}else if(command.equals("/guest_modify_action.do")) {
-//			if(request.getMethod().equalsIgnoreCase("GET")){
-//				forwardPath="redirect:guest_main.do";
-//			}else {
+			if(request.getMethod().equalsIgnoreCase("GET")){
+				forwardPath="redirect:guest_main.do";
+			}else {
 				try{
 					request.setCharacterEncoding("UTF-8");
 					String guest_noStr=request.getParameter("guest_no");
@@ -169,10 +169,9 @@ public class DispatcherServlet extends HttpServlet {
 					e.printStackTrace();
 					forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 					
-				
+				}
 			}	
-			
-			
+		/***************************guest_remove_action*******************************/
 		}else if(command.equals("/guest_remove_action.do")) {
 			forwardPath="forward:/WEB-INF/views/guest_remove_action.jsp";
 			if(request.getMethod().equalsIgnoreCase("GET")){
@@ -191,8 +190,7 @@ public class DispatcherServlet extends HttpServlet {
 			    	forwardPath="redirect:guest_error.do";
 			    }
 			}	
-			
-			
+		/***************************guest_error*******************************/
 		}else if(command.equals("/guest_error.do")) {
 			forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 		
