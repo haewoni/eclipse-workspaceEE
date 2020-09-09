@@ -138,7 +138,8 @@ a.m2:hover {
 
 					<tr bgcolor=#f4f4f4>
 						<td align=center class="t1">파일선택</td>
-						<td align=left>&nbsp;<input type=file name=fileone size=40
+						<td align=left>&nbsp;
+						<input type=file name=fileone size=40
 							class="TXTFLD">
 						</td>
 					</tr>
