@@ -3,17 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	/*
-	요청URL-->
-	  http://192.16.15.31/guest_model1/guest_view.jsp?guest_no=2
-		1 . 파라메타받기
-		2 . Service객체 메쏘드호출(업무처리)
-		3 . 요청클라이언트로 응답 
-	*/
-	
-	Guest guest = (Guest)request.getAttribute("Guest");
-	
-	
+	Guest guest=(Guest)request.getAttribute("guest");	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -9,7 +9,7 @@ import com.itwill.guest.GuestService;
 
 public class GuestListController {
 	public String handleRequest(HttpServletRequest request) {
-		/***************************guest_list*******************************/
+		/********************guest_list.do***********************/
 		String forwardPath="";
 		try {
 			GuestService guestService=new GuestService();
@@ -23,5 +23,4 @@ public class GuestListController {
 		
 		return forwardPath;
 	}
-
 }

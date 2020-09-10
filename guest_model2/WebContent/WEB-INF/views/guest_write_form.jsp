@@ -9,9 +9,7 @@
 	href="css/styles.css">
 <link rel="stylesheet"
 	href="css/guest.css">
-
 <script	src="js/guest.js"></script>
-
 <script type="text/javascript">
 /*
 	function guestWriteAction(){
@@ -24,7 +22,6 @@
 		document.f.action='guest_write_action.jsp';
 		document.f.method='POST';
 		document.f.submit();
-		
 	}
 */
 </script>
