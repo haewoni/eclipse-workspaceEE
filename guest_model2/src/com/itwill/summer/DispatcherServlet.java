@@ -1,4 +1,4 @@
-package com.itwill.guest.controller;
+package com.itwill.summer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itwill.guest.Guest;
 import com.itwill.guest.GuestService;
+import com.itwill.guest.controller.GuestListController;
+import com.itwill.guest.controller.GuestMainController;
+import com.itwill.guest.controller.GuestWriteFormController;
 
 /*
 모든요청의 진입점(단일 Controller)
@@ -29,7 +32,6 @@ import com.itwill.guest.GuestService;
  */
 
 public class DispatcherServlet extends HttpServlet {
-	
 	public void init(ServletConfig config) throws ServletException {
 		
 	}
@@ -56,29 +58,24 @@ public class DispatcherServlet extends HttpServlet {
 //		System.out.println("contextPath:"+contextPath);
 		String command = requestURI.substring(contextPath.length());
 //		System.out.println("command:"+command);
+		
+		
 		/*
 		 * 2.클라이언트의 요청에 따른 업무실행(XXSercive)
 		 */
+		
 		String forwardPath="";
-		/***************************guest_main*******************************/
 		if(command.equals("/guest_main.do")) {
-			forwardPath="forward:/WEB-INF/views/guest_main.jsp";
-		/***************************guest_write_form*******************************/
+			GuestMainController controller = new GuestMainController();
+			forwardPath = controller.handleRequest();
 		}else if(command.equals("/guest_write_form.do")) {
-			forwardPath="forward:/WEB-INF/views/guest_write_form.jsp";	
-		/***************************guest_list*******************************/
+			GuestWriteFormController controller = new GuestWriteFormController();
+			forwardPath = controller.handleRequest();
 		}else if(command.equals("/guest_list.do")) {
-			try {
-				GuestService guestService=new GuestService();
-				ArrayList<Guest> guestList=guestService.selectAll();
-				request.setAttribute("guestList", guestList);
-				forwardPath="forward:/WEB-INF/views/guest_list.jsp";
-			}catch (Exception e) {
-				e.printStackTrace();
-				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
-			}
-		/***************************guest_view*******************************/
+			GuestListController controller = new GuestListController();
+			forwardPath = controller.handleRequest(request);
 		}else if(command.equals("/guest_view.do")) {
+			/***************************guest_view*******************************
 			String guest_noStr = request.getParameter("guest_no");
 			if(guest_noStr==null||guest_noStr.equals("")){
 				forwardPath="redirect:guest_list.do";
@@ -94,8 +91,9 @@ public class DispatcherServlet extends HttpServlet {
 					forwardPath = "forward:/WEB-INF/views/guest_error.jsp";
 				}
 			}
-		/***************************guest_write_action*******************************/
+			*/
 		}else if(command.equals("/guest_write_action.do")) {
+			/***************************guest_write_action*******************************
 			if(request.getMethod().equalsIgnoreCase("GET")){
 				//response.sendRedirect("guest_write_form.do");
 				forwardPath="redirect:guest_write_form.do";
@@ -124,8 +122,9 @@ public class DispatcherServlet extends HttpServlet {
 					forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 				}
 			}
-		/***************************guest_modify_form*******************************/
+			*/
 		}else if(command.equals("/guest_modify_form.do")) {
+			/***************************guest_modify_form*******************************
 			if(request.getMethod().equalsIgnoreCase("GET")){
 //				response.sendRedirect("guest_main.jsp");
 				forwardPath="redirect:guest_main.do";
@@ -143,9 +142,9 @@ public class DispatcherServlet extends HttpServlet {
 					forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 				}
 			}
-
-		/***************************guest_modify_action*******************************/
+	*/
 		}else if(command.equals("/guest_modify_action.do")) {
+			/***************************guest_modify_action*******************************
 			if(request.getMethod().equalsIgnoreCase("GET")){
 				forwardPath="redirect:guest_main.do";
 			}else {
@@ -171,8 +170,9 @@ public class DispatcherServlet extends HttpServlet {
 					
 				}
 			}	
-		/***************************guest_remove_action*******************************/
+			*/
 		}else if(command.equals("/guest_remove_action.do")) {
+			/***************************guest_remove_action*******************************
 			forwardPath="forward:/WEB-INF/views/guest_remove_action.jsp";
 			if(request.getMethod().equalsIgnoreCase("GET")){
 				//response.sendRedirect("guest_main.do");
@@ -190,11 +190,13 @@ public class DispatcherServlet extends HttpServlet {
 			    	forwardPath="redirect:guest_error.do";
 			    }
 			}	
-		/***************************guest_error*******************************/
+			*/
 		}else if(command.equals("/guest_error.do")) {
+			/***************************guest_error*******************************
 			forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 		
 		}
+		*/
 		/*
 		 * 3.JSP forward or redirect
 		 */
@@ -207,6 +209,7 @@ public class DispatcherServlet extends HttpServlet {
 		}else {
 			RequestDispatcher rd=request.getRequestDispatcher(path);
 			rd.forward(request, response);
+		}
 		}
 			
 	}
