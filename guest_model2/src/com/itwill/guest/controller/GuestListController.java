@@ -3,12 +3,14 @@ package com.itwill.guest.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.itwill.guest.Guest;
 import com.itwill.guest.GuestService;
+import com.itwill.summer.Controller;
 
-public class GuestListController {
-	public String handleRequest(HttpServletRequest request) {
+public class GuestListController implements Controller {
+	public String handleRequest(HttpServletRequest request,HttpServletResponse response) {
 		/********************guest_list.do***********************/
 		String forwardPath="";
 		try {
