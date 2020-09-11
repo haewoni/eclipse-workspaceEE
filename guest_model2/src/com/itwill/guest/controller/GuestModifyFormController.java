@@ -11,8 +11,8 @@ public class GuestModifyFormController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath="";
 		/********************guest_modify_form.do******************/
+		String forwardPath="";
 		if(request.getMethod().equalsIgnoreCase("GET")){
 			forwardPath="redirect:guest_main.do";
 		}else {
@@ -28,7 +28,6 @@ public class GuestModifyFormController implements Controller {
 				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 			}
 		}
-		
 		return forwardPath;
 	}
 

@@ -6,5 +6,5 @@
 /guest_view.do
 /guest_modify_form.do
 /guest_modify_action.do
-/guest_delete_action.do
+/guest_remove_action.do
 /guest_error.do

@@ -11,8 +11,8 @@ public class GuestWriteActionController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath="";
 		/********************guest_write_action.do******************/
+		String forwardPath="";
 		if(request.getMethod().equalsIgnoreCase("GET")) {
 			forwardPath = "redirect:guest_main.do";
 		}else {
@@ -31,7 +31,6 @@ public class GuestWriteActionController implements Controller {
 				e.printStackTrace();
 			}
 		}
-		
 		return forwardPath;
 	}
 

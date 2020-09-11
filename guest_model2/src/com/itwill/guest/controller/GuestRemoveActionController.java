@@ -10,8 +10,8 @@ public class GuestRemoveActionController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath="";
 		/********************guest_remove_action.do******************/
+		String forwardPath="";
 		if(request.getMethod().equalsIgnoreCase("GET")){
 			//response.sendRedirect("guest_main.do");
 			forwardPath="redirect:guest_main.do";
@@ -28,7 +28,6 @@ public class GuestRemoveActionController implements Controller {
 		    	forwardPath="redirect:guest_error.do";
 		    }
 		}
-		
 		return forwardPath;
 	}
 

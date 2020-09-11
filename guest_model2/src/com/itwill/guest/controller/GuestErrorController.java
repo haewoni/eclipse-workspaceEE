@@ -9,10 +9,8 @@ public class GuestErrorController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		String forwardPath="";
 		/**************************************************/
-		forwardPath="forward:/WEB-INF/views/guest_error.jsp";
-		
+		String forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 		return forwardPath;
 	}
 

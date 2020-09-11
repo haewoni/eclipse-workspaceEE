@@ -9,8 +9,9 @@ import com.itwill.guest.Guest;
 import com.itwill.guest.GuestService;
 import com.itwill.summer.Controller;
 
-public class GuestListController implements Controller {
-	public String handleRequest(HttpServletRequest request,HttpServletResponse response) {
+public class GuestListController implements Controller{
+	public String handleRequest(HttpServletRequest request,
+								HttpServletResponse response) {
 		/********************guest_list.do***********************/
 		String forwardPath="";
 		try {

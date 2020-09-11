@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.itwill.guest.controller.GuestErrorController;
 import com.itwill.guest.controller.GuestListController;
 import com.itwill.guest.controller.GuestMainController;
+import com.itwill.guest.controller.GuestModifyActionController;
 import com.itwill.guest.controller.GuestModifyFormController;
 import com.itwill.guest.controller.GuestRemoveActionController;
 import com.itwill.guest.controller.GuestViewController;
 import com.itwill.guest.controller.GuestWriteActionController;
 import com.itwill.guest.controller.GuestWriteFormController;
-import com.itwill.guest.controller.guestModifyActionController;
 
 
 public class DispatcherServlet2 extends HttpServlet {
@@ -28,28 +28,22 @@ public class DispatcherServlet2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request,response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request,response);
 	}
-	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		
 		/*
 		 * 1.클라이언트의 요청URI를  사용해서 요청분석(구분)
 		 */
 		String requestURI = request.getRequestURI();
-		//System.out.println("requestURI:"+requestURI);
 		String contextPath= request.getContextPath();
-		//System.out.println("contextPath:"+contextPath);
 		String command =requestURI.substring(contextPath.length());
-		//System.out.println("command:"+command);
 		/*
 		 * 2.클라이언트의 요청에따른 업무실행(XXService),forwardPath
 		 */
 		String forwardPath="";
-		/*################################################################*/
-		Controller controller = null;
+		Controller controller=null;
+		/*########################################################*/
 		if(command.equals("/guest_main.do")) {
 			controller=new GuestMainController();
 		}else if(command.equals("/guest_write_form.do")) {
@@ -59,19 +53,18 @@ public class DispatcherServlet2 extends HttpServlet {
 		}else if(command.equals("/guest_view.do")) {
 			controller=new GuestViewController();
 		}else if(command.equals("/guest_write_action.do")) {
-			controller= new GuestWriteActionController();
+			controller=new GuestWriteActionController();
 		}else if(command.equals("/guest_remove_action.do")) {
-			controller = new GuestRemoveActionController();
+			controller=new GuestRemoveActionController();
 		}else if(command.equals("/guest_modify_form.do")) {
-			controller = new GuestModifyFormController();
+			controller=new GuestModifyFormController();
 		}else if(command.equals("/guest_modify_action.do")) {
-			controller = new guestModifyActionController();
+			controller =new GuestModifyActionController();
 		}else {
-			controller= new GuestErrorController();
+			controller=new GuestErrorController();
 		}
-		
-		/*################################################################*/
-		forwardPath = controller.handleRequest(request, response);
+		/*########################################################*/
+		forwardPath=controller.handleRequest(request, response);
 		/*
 		 * 3.JSP forward or redirect
 		 */
@@ -84,8 +77,9 @@ public class DispatcherServlet2 extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher(path);
 			rd.forward(request, response);
 		}
-		
 	}
-	
-
 }
+
+
+
+

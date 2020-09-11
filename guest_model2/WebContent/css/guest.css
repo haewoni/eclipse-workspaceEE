@@ -34,24 +34,37 @@ A:hover {
 	text-decoration: underline;
 	*/
 }
-
 a.user:link {
 	color: #333333;
 	font-family: "돋움", "굴림";
 	font-size: 12px;
+	/*
 	text-decoration: underline;
+	*/
 }
 a.user:visited {
 	color: #333333;
 	font-family: "돋움", "굴림";
 	font-size: 12px;
+	/*
 	text-decoration: underline;
+	*/
 }
 a.user:active {
 	color: #333333;
 	font-family: "돋움", "굴림";
 	font-size: 12px;
+	/*
 	text-decoration: underline;
+	*/
+}
+a.user:hover {
+	color: #3740cac4;
+	font-family: "돋움", "굴림";
+	font-size: 12px;
+	/*
+	text-decoration: underline;
+	*/
 }
 input {
 	font-family: 돋움;

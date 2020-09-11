@@ -7,7 +7,7 @@ import com.itwill.guest.Guest;
 import com.itwill.guest.GuestService;
 import com.itwill.summer.Controller;
 
-public class guestModifyActionController implements Controller {
+public class GuestModifyActionController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -36,10 +36,8 @@ public class guestModifyActionController implements Controller {
 			}catch(Exception e){
 				e.printStackTrace();
 				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
-				
 			}
 		}
-		
 		return forwardPath;
 	}
 

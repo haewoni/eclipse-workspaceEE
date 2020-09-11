@@ -28,7 +28,6 @@ public class GuestViewController implements Controller {
 				forwardPath="forward:/WEB-INF/views/guest_error.jsp";
 			}
 		}
-		
 		return forwardPath;
 	}
 
