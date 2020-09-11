@@ -24,6 +24,9 @@ import com.itwill.guest.controller.guestModifyActionController;
 
 
 public class DispatcherServlet extends HttpServlet {
+	public DispatcherServlet() {
+
+	}
 	/*
 	 * Controller 객체들을 저장하는 맵
 	 */
@@ -31,6 +34,7 @@ public class DispatcherServlet extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		System.out.println("1.DispatcherServlet 객체 init() 호출");
 		controllerMap=new HashMap<String, Controller>();
 		/*
 		 * /guest_main.do
@@ -43,7 +47,7 @@ public class DispatcherServlet extends HttpServlet {
 			/guest_remove_action.do
 			/guest_error.do
 		 */
-		
+		System.out.println("----------------------Controller 객체 9개 생성----------------------------");
 		controllerMap.put("/guest_main.do", new GuestMainController());
 		controllerMap.put("/guest_write_form.do", new GuestWriteFormController());
 		controllerMap.put("	/guest_write_action.do", new GuestWriteActionController());
@@ -53,6 +57,10 @@ public class DispatcherServlet extends HttpServlet {
 		controllerMap.put("/guest_modify_action.do", new guestModifyActionController());
 		controllerMap.put("/guest_remove_action.do", new GuestRemoveActionController());
 		controllerMap.put("	/guest_error.do", new GuestErrorController());
+		
+		
+		System.out.println(controllerMap);
+		System.out.println("---------------------------------------------------------");
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.processRequest(request,response);
