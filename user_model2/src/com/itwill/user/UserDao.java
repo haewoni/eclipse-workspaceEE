@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import org.apache.commons.dbcp2.BasicDataSource;
 
 /*
  사용자관리에서 데이타베이스와의 작업을 전담하는 클래스
@@ -19,24 +17,24 @@ public class UserDao {
 	 * Connection을 반환해주는객체
 	 */
 	private DataSource dataSource;
-	/*
+	
 	public UserDao() throws Exception {
 		InitialContext ic = new InitialContext();
 		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
 		System.out.println("UserDao()생성자:" + this + "-->" + dataSource);
 	}
-	*/
-	  public UserDao() throws Exception { 
-		  Properties properties=new Properties();
-		  properties.load(this.getClass().getResourceAsStream("db.properties"));
-		  BasicDataSource basicDataSource = new BasicDataSource();
-		  basicDataSource.setDriverClassName(properties.getProperty("driverClass"));
-		  basicDataSource.setUrl(properties.getProperty("url"));
-		  basicDataSource.setUsername(properties.getProperty("user"));
-		  basicDataSource.setPassword(properties.getProperty("password")); 
-		  dataSource = basicDataSource; 
-	  }
-	  
+//	
+//	  public UserDao() throws Exception { 
+//		  Properties properties=new Properties();
+//		  properties.load(this.getClass().getResourceAsStream("db.properties"));
+//		  BasicDataSource basicDataSource = new BasicDataSource();
+//		  basicDataSource.setDriverClassName(properties.getProperty("driverClass"));
+//		  basicDataSource.setUrl(properties.getProperty("url"));
+//		  basicDataSource.setUsername(properties.getProperty("user"));
+//		  basicDataSource.setPassword(properties.getProperty("password")); 
+//		  dataSource = basicDataSource; 
+//	  }
+//	  
 	 
 	/*
 	 * 사용자관리테이블에 새로운사용자생성
