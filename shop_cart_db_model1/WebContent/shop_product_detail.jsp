@@ -128,7 +128,7 @@
 							-->
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center><input type="button" value="구매"
+									<td align=center><input type="button" value="주문"
 										onClick="buy()"> &nbsp; <input type="button"
 										value="계속쇼핑" onClick="productList()"></td>
 								</tr>

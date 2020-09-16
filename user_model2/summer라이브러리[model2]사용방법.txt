@@ -1,9 +1,6 @@
 ﻿A.라이브러리다운로드후 summar.jar context/WEB-INF/lib 폴더에위치시킨다.(summer.jar)
-
 B. /WEB-INF/user_controller_mapping.properties 파일생성
-
 C.모든클라이언트요청(*.do)을 실행하도록  web.xml설정
-
 B.contoller설정파일위치파라메타등록
 	  <servlet>
 	  	<servlet-name>dispatcher</servlet-name>
@@ -33,11 +30,20 @@ C.인코딩필터클래스설정  web.xml설정
 			<filter-name>encoding filter</filter-name>
 			<url-pattern>/*</url-pattern>
 		</filter-mapping>
-
-D. /WEB-INF/user_controller_mapping.properties 파일 생성 
-		
+	
+D. /WEB-INF/user_controller_mapping.properties 파일생성	
 E. Controller작성(Controller interface implement)
-
 F. properties파일에설정(mapping)	
+G. *.jsp작성
 
-G.* jsp 작성
+
+
+
+
+
+
+
+
+
+
+

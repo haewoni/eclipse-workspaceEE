@@ -35,6 +35,9 @@
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
+	<form action="">
+	
+	</form>
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
@@ -127,8 +130,8 @@
 								<tr>
 									<td align=center>&nbsp;&nbsp;<a href=shop_delete_cart.jsp
 										class=m1>장바구니 비우기</a>&nbsp;&nbsp;<a href=shop_product_list.jsp
-										class=m1>계속 구경하기</a> &nbsp;&nbsp;<a href="javascript:buy();"
-										class=m1>구매하기</a>
+										class=m1>계속 구경하기</a> &nbsp;&nbsp;<a href="javascript:view_cart_form();"
+										class=m1>주문하기</a>
 
 									</td>
 								</tr>
