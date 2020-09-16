@@ -66,7 +66,7 @@
 		<li>${date}</li>
 		<li>${date.year+1900}년</li>
 		<li>${date.month+1}월</li>
-		<li>${date.day}일</li>
+		<li>${date.date}일</li>
 	</ol>
 </body>
 </html>
