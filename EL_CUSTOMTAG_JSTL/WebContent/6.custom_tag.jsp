@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--@ taglib uri="http://www.itwill.co.kr/jsp/simpleTag"  prefix="simple"--%>
-<%@ taglib uri="/WEB-INF/simpleTag.tld" prefix="simple" %>
-
+<%--@ taglib uri="http://www.itwill.co.kr/jsp/simpleTag"  prefix="simple" --%> 
+<%@ taglib  uri="/WEB-INF/simpleTag.tld" prefix="simple"%>
 <%
-		session.setAttribute("sUserId", "guard");
-		session.setAttribute("name", "고소미");
-
-%>
+	//session.setAttribute("sUserId", "guard");
+	session.setAttribute("irum", "고소미");
+%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +14,18 @@
 </head>
 <body>
 <h1>custom tag[사용자 정의 태그]</h1><hr/>
-
----------------hello-------------------<br>
+<%-- 
+<jsp:forward/>
+--%>
+-------------hello tag-----------<br>
 <simple:hello/>
 <simple:hello/>
----------------helloAttr tag ----------<br>
-<simple:helloAttr />
+-------------helloAttr tag -----------<br>
+<simple:helloAttr/>
 <simple:helloAttr name="김경호"/>
 <simple:helloAttr name="장동건"/>
-<simple:helloAttr name="${name}"/>
----------------if tag[body] ----------<br>
+<simple:helloAttr name="${irum}"/>
+-------------if tag[body] -----------<br>
 <simple:if test="true">
 	반드시실행<br>
 </simple:if>
@@ -35,17 +35,32 @@
 </simple:if>
 
 <simple:if test="${sUserId!=null}">
-	${sUserId} 님 안녕하세요!!<br>
+	${sUserId} 님 안녕하세요!!!<br>
 </simple:if>
 <simple:if test="${sUserId==null}">
-	GUEST 님 안녕하세요!!<br>
+	GUEST 님 안녕하세요!!!<br>
 </simple:if>
 
 <simple:if test="${sUserId!=null}">
-	<a href="logout.jsp]">${sUserId} 님 로그아웃</a>
-</simple:if>	
+	<a href='logout.jsp'>${sUserId} 님 로그아웃</a>
+</simple:if>
 <simple:if test="${sUserId==null}">
-	<a href="login.jsp]">로그인</a>
-</simple:if>	
+	<a href='login_form.jsp'>로그인</a>
+</simple:if>
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

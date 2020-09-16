@@ -5,9 +5,7 @@ public class Student {
 	private String name;
 	private int age;
 	private Car car;
-	
 	public Student() {
-		
 	}
 	
 	public Student(int no, String name, int age, Car car) {
@@ -17,40 +15,42 @@ public class Student {
 		this.age = age;
 		this.car = car;
 	}
-
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
-	public String getIrum() {
-		return name;
-	}
-
-	public void setIrum(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public Car getCar() {
 		return car;
 	}
-
 	public void setCar(Car car) {
 		this.car = car;
 	}
 
+
+	public int getNo() {
+		return no;
+	}
 	
+	public int getAge() {
+		return age;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getIrum() {
+		return name;
+	}
+	public void setIrum(String name) {
+		this.name = name;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
 	
 	
 }
+/*
+//no,irum,age 프로퍼티를가진다(read property)
+//no,irum,age 프로퍼티를가진다(write property)
+Student Bean객체는 read,write가능한 no,irum,age 프로퍼티를가진다
+*/
+
+
+
+

@@ -66,7 +66,7 @@ public class Guest {
 	public void setGuest_content(String guest_content) {
 		this.guest_content = guest_content;
 	}
-
+	
 	
 	
 }
