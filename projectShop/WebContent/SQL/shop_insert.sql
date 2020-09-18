@@ -46,6 +46,7 @@ VALUES (JUMUN_DETAIL_J_DETAIL_NO_SEQ.nextval, '어깨피자', 1, JUMUN_JUMUN_NO_
 INSERT INTO board (board_no, board_title, board_date, board_content, m_id) 
 VALUES (BOARD_BOARD_NO_SEQ.nextval, '어깨피자 맛있어요', sysdate, '너무 맛있어요~!!!', 'guard1');
 
+
 commit;
 
 

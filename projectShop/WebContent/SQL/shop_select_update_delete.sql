@@ -18,6 +18,7 @@ where m.m_id='guard1' and p.p_no=3;
 --guard1 멤버 한 사람의 카트정보출력(제품정보)
 select*
 
+
 --guard1 카트에 있는 제품 수량증가
 
 	
