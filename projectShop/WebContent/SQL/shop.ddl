@@ -1,3 +1,10 @@
+DROP TABLE jumun_detail CASCADE CONSTRAINTS;
+DROP TABLE board CASCADE CONSTRAINTS;
+DROP TABLE cart CASCADE CONSTRAINTS;
+DROP TABLE jumun CASCADE CONSTRAINTS;
+DROP TABLE product CASCADE CONSTRAINTS;
+DROP TABLE member CASCADE CONSTRAINTS;
+
 /**********************************/
 /* Table Name: member */
 /**********************************/
@@ -27,8 +34,14 @@ CREATE TABLE product(
 		p_name                        		VARCHAR2(150)		 NULL ,
 		p_img                         		VARCHAR2(100)		 NULL ,
 		p_desc                        		VARCHAR2(150)		 NULL ,
-		p_price                       		NUMBER(50)		 NULL 
+		p_price                       		NUMBER(20)		 NULL 
 );
+
+DROP SEQUENCE product_p_no_SEQ;
+
+CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
 
 COMMENT ON TABLE product is 'product';
 COMMENT ON COLUMN product.p_no is 'p_no';
@@ -42,23 +55,18 @@ COMMENT ON COLUMN product.p_price is 'p_price';
 /* Table Name: jumun */
 /**********************************/
 CREATE TABLE jumun(
-		jumun_no                      		NUMBER(50)		 NULL ,
+		jumun_no                      		NUMBER(10)		 NULL ,
 		jumun_name                    		VARCHAR2(150)		 NULL ,
-		jumun_tot_price               		NUMBER(100)		 NULL ,
+		jumun_tot_price               		NUMBER(20)		 NULL ,
 		jumun_date                    		DATE		 NULL ,
 		m_id                          		VARCHAR2(50)		 NULL 
 );
 
+DROP SEQUENCE jumun_jumun_no_SEQ;
+
 CREATE SEQUENCE jumun_jumun_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
-CREATE TRIGGER jumun_jumun_no_TRG
-BEFORE INSERT ON jumun
-FOR EACH ROW
-BEGIN
-IF :NEW.jumun_no IS NOT NULL THEN
-  SELECT jumun_jumun_no_SEQ.NEXTVAL INTO :NEW.jumun_no FROM DUAL;
-END IF;
-END;
+
 
 COMMENT ON TABLE jumun is 'jumun';
 COMMENT ON COLUMN jumun.jumun_no is 'jumun_no';
@@ -72,12 +80,21 @@ COMMENT ON COLUMN jumun.m_id is 'm_id';
 /* Table Name: cart */
 /**********************************/
 CREATE TABLE cart(
-		cart_no                       		INTEGER(10)		 NULL ,
+		cart_no                       		NUMBER(10)		 NULL ,
 		cart_qty                      		NUMBER(10)		 NULL ,
-		cart_price_total              		INTEGER(10)		 NULL ,
+		cart_price_total              		NUMBER(10)		 NULL ,
 		m_id                          		VARCHAR2(50)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL 
 );
+
+DROP SEQUENCE cart_cart_no_SEQ;
+
+CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+DROP SEQUENCE cart_p_no_SEQ;
+
+CREATE SEQUENCE cart_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 COMMENT ON TABLE cart is 'cart';
 COMMENT ON COLUMN cart.cart_no is 'cart_no';
@@ -91,12 +108,17 @@ COMMENT ON COLUMN cart.p_no is 'p_no';
 /* Table Name: borad */
 /**********************************/
 CREATE TABLE board(
-		board_no                      		INTEGER(10)		 NULL ,
-		board_title                   		INTEGER(10)		 NULL ,
-		board_date                    		INTEGER(10)		 NULL ,
-		board_content                 		INTEGER(10)		 NULL ,
+		board_no                      		NUMBER(10)		 NULL ,
+		board_title                   		NUMBER(10)		 NULL ,
+		board_date                    		NUMBER(10)		 NULL ,
+		board_content                 		NUMBER(10)		 NULL ,
 		m_id                          		VARCHAR2(50)		 NULL 
 );
+
+DROP SEQUENCE board_board_no_SEQ;
+
+CREATE SEQUENCE board_board_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 COMMENT ON TABLE board is 'borad';
 COMMENT ON COLUMN board.board_no is 'board_no';
@@ -111,10 +133,20 @@ COMMENT ON COLUMN board.m_id is 'm_id';
 /**********************************/
 CREATE TABLE jumun_detail(
 		j_detail_no                   		NUMBER(10)		 NULL ,
-		jumun_no                      		NUMBER(50)		 NULL ,
+		jumun_no                      		NUMBER(10)		 NULL ,
 		jumun_qty                     		NUMBER(10)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL 
 );
+
+DROP SEQUENCE jumun_detail_j_detail_no_SEQ;
+
+CREATE SEQUENCE jumun_detail_j_detail_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+DROP SEQUENCE jumun_detail_p_no_SEQ;
+
+CREATE SEQUENCE jumun_detail_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
+
 
 COMMENT ON TABLE jumun_detail is 'jumun_detail';
 COMMENT ON COLUMN jumun_detail.j_detail_no is 'j_detail_no';
@@ -141,3 +173,4 @@ ALTER TABLE jumun_detail ADD CONSTRAINT IDX_jumun_detail_PK PRIMARY KEY (j_detai
 ALTER TABLE jumun_detail ADD CONSTRAINT IDX_jumun_detail_FK0 FOREIGN KEY (jumun_no) REFERENCES jumun (jumun_no);
 ALTER TABLE jumun_detail ADD CONSTRAINT IDX_jumun_detail_FK1 FOREIGN KEY (p_no) REFERENCES product (p_no);
 
+COMMIT;
