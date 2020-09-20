@@ -1,17 +1,17 @@
 --insert member
 INSERT INTO member (m_id, m_password, m_name, m_email, m_address, m_phone) 
-VALUES ('guard1', '1111', 'ì‹ í˜œì›', 'guard1@gmail.com', 'ê°•ì„œêµ¬', '010-1111-2222');
+VALUES ('guard1', '1111', '?‹ ?˜œ?›', 'guard1@gmail.com', 'ê°•ì„œêµ?', '010-1111-2222');
 INSERT INTO member (m_id, m_password, m_name, m_email, m_address, m_phone) 
-VALUES ('guard2', '2222', 'ì‹ ì§€ì›', 'guard2@gmail.com', 'ê°•ì„œêµ¬', '010-1111-3333');
+VALUES ('guard2', '2222', '?‹ ì§??›', 'guard2@gmail.com', 'ê°•ì„œêµ?', '010-1111-3333');
 
 
 --insert product
 INSERT INTO product (p_no, p_name, p_img, p_desc, p_price) 
-VALUES (product_p_no_SEQ.nextval, 'ì‰¬ë°˜ë‹¨ë°˜í”¼ì', 'banban.png', '#ë‹­ê³ ê¸°#ë‹¨í˜¸ë°•#ìƒˆìš°#ì¹˜ì¦ˆ', 28000);
+VALUES (product_p_no_SEQ.nextval, '?‰¬ë°˜ë‹¨ë°˜í”¼?', 'banban.png', '#?‹­ê³ ê¸°#?‹¨?˜¸ë°?#?ƒˆ?š°#ì¹˜ì¦ˆ', 28000);
 INSERT INTO product (p_no, p_name, p_img, p_desc, p_price) 
-VALUES (product_p_no_SEQ.nextval, 'ê¿ˆì„í”¼ì', 'dream.png', '#ë¶ˆê³ ê¸°#ë°”ì§ˆ#í•´ë‚¨ì‚°ê³ êµ¬ë§ˆ', 28000);
+VALUES (product_p_no_SEQ.nextval, 'ê¿ˆì„?”¼?', 'dream.png', '#ë¶ˆê³ ê¸?#ë°”ì§ˆ#?•´?‚¨?‚°ê³ êµ¬ë§?', 28000);
 INSERT INTO product (p_no, p_name, p_img, p_desc, p_price) 
-VALUES (product_p_no_SEQ.nextval, 'ì–´ê¹¨í”¼ì', 'shoulder.png', '#9ê°€ì§€ë§›#ë‹­ê³ ê¸°#ë‹¨í˜¸ë°•#ìƒˆìš°', 28000);
+VALUES (product_p_no_SEQ.nextval, '?–´ê¹¨í”¼?', 'shoulder.png', '#9ê°?ì§?ë§?#?‹­ê³ ê¸°#?‹¨?˜¸ë°?#?ƒˆ?š°', 28000);
 
 
 --insert cart
@@ -25,19 +25,19 @@ VALUES (cart_cart_no_SEQ.nextval, 1, 28000, 'guard2', 2);
 
 --insert jumun
 INSERT INTO jumun (jumun_no, jumun_name, jumun_tot_price, jumun_date, m_id) 
-VALUES (JUMUN_JUMUN_NO_SEQ.nextval, 'ê¿ˆì„í”¼ì ì™¸ 1ì¢…', 56000, sysdate, 'guard1');
+VALUES (JUMUN_JUMUN_NO_SEQ.nextval, 'ê¿ˆì„?”¼? ?™¸ 1ì¢?', 56000, sysdate, 'guard1');
 
 --insert jumun_detail
 INSERT INTO jumun_detail (j_detail_no, j_detail_name, jumun_no, jumun_qty, p_no) 
-VALUES (JUMUN_DETAIL_J_DETAIL_NO_SEQ.nextval,'ê¿ˆì„í”¼ì', 1,JUMUN_JUMUN_NO_SEQ.currval, 2);
+VALUES (JUMUN_DETAIL_J_DETAIL_NO_SEQ.nextval,'ê¿ˆì„?”¼?', 1,JUMUN_JUMUN_NO_SEQ.currval, 2);
 INSERT INTO jumun_detail (j_detail_no, j_detail_name, jumun_no, jumun_qty, p_no) 
-VALUES (JUMUN_DETAIL_J_DETAIL_NO_SEQ.nextval, 'ì–´ê¹¨í”¼ì', 1, JUMUN_JUMUN_NO_SEQ.currval, 3);
+VALUES (JUMUN_DETAIL_J_DETAIL_NO_SEQ.nextval, '?–´ê¹¨í”¼?', 1, JUMUN_JUMUN_NO_SEQ.currval, 3);
 
 
 
 --insert board
 INSERT INTO board (board_no, board_title, board_date, board_content, m_id) 
-VALUES (BOARD_BOARD_NO_SEQ.nextval, 'ì–´ê¹¨í”¼ì ë§›ìˆì–´ìš”', sysdate, 'ë„ˆë¬´ ë§›ìˆì–´ìš”~!!!', 'guard1');
+VALUES (BOARD_BOARD_NO_SEQ.nextval, '?–´ê¹¨í”¼? ë§›ìˆ?–´?š”', sysdate, '?„ˆë¬? ë§›ìˆ?–´?š”~!!!', 'guard1');
 
 
 commit;
