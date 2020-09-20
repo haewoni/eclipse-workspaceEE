@@ -4,7 +4,7 @@ VALUES ('guard1', '1111', '신혜원', 'guard1@gmail.com', '강서구', '010-111
 
 INSERT INTO member (m_id, m_password, m_name, m_email, m_address, m_phone) 
 VALUES ('guard2', '2222', '신지원', 'guard2@gmail.com', '강서구', '010-1111-3333');
-
+   
 
 
 --insert product
