@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.guest.mapper.GuestMapper">
+	
+	<!-- ################### resultMap ####################### -->
+	 <resultMap  id="guestResultMap" 
+	            type="com.itwill.guest.Guest">
+	 	     <result column="GUEST_NO" property="guest_no"/>      
+	 	     <result column="GUEST_DATE" property="guest_date"/>      
+	 	     <result column="GUEST_EMAIL" property="guest_email"/>      
+	 	     <result column="GUEST_HOMEPAGE" property="guest_homepage"/>      
+	 	     <result column="UEST_TITLE" property="guest_title"/>      
+	 	     <result column="UEST_CONTENT" property="guest_content"/>      
+	 </resultMap>
+	 
+	<select id="selectAll" resultType="com.itwill.guest.Guest">
+		select * from guest
+	</select>
+	
+	<select id="selectByNo" resultType="com.itwill.guest.Guest">
+		select * from guest
+		where guest_no=#{guest_no}
+	</select>
+	
+	<insert id="insertGuest" parameterType="com.itwill.guest.Guest">
+		<selectKey order="BEFORE" keyProperty="guest_no" resultType="int">
+    		select GUEST_NO_SEQ.nextval from dual
+    	</selectKey>
+		insert into guest(guest_no,guest_date,guest_email,guest_homepage,guest_title,guest_content)
+		values (GUEST_NO_SEQ.nextval,#{guest_date},#{guest_email},#{guest_homepage},#{guest_title},#{guest_content})
+	</insert>
+</mapper>
