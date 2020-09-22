@@ -6,6 +6,7 @@ public class GuestService {
 	private GuestDao guestDao;
 	public GuestService() throws Exception {
 		guestDao=new GuestDaoImplMyBatis();
+		
 	}
 	/*
 	 * Create

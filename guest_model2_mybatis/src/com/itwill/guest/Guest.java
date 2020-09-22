@@ -70,7 +70,7 @@ public class Guest {
 	public String toString() {
 		return "Guest [guest_no=" + guest_no + ", guest_name=" + guest_name + ", guest_date=" + guest_date
 				+ ", guest_email=" + guest_email + ", guest_homepage=" + guest_homepage + ", guest_title=" + guest_title
-				+ ", guest_content=" + guest_content + "]\n";
+				+ ", guest_content=" + guest_content + "]";
 	}
 	
 	

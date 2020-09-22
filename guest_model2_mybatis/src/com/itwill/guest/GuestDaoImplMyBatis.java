@@ -50,13 +50,16 @@ public class GuestDaoImplMyBatis implements GuestDao {
 
 	@Override
 	public int updateGuest(Guest guest) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		int updateRowCount = sqlSession.update(NAMESPACE+"updateGuest",guest);
+		sqlSession.close();
+		return updateRowCount;
 	}
 
 	@Override
 	public int deleteGuest(int no) throws Exception {
-		// TODO Auto-generated method stub
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int deleteRowCount = sqlSession.delete(NAMESPACE+"deleteGuest",no);
 		return 0;
 	}
 

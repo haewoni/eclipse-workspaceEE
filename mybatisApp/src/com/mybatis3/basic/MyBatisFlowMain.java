@@ -32,16 +32,26 @@ public class MyBatisFlowMain {
 		 */
 		SqlSession sqlSession = ssf.openSession();
 		/*
-		 * 4.SqlSession 사용(CRUD)
+		 * 4. SqlSession사용(CRUD)
 		 */
-		System.out.println("###SqlSession 객체:"+sqlSession);
-		Student findStudent = sqlSession.selectOne("com.mybatis3.dao.mapper.StudentMapper.findStudentById",new Integer(1));
-		System.out.println(findStudent);
+		System.out.println("####SqlSession객체:"+sqlSession);
+		Student findStudent=
+				sqlSession
+				.selectOne("com.mybatis3.dao.mapper.StudentMapper.findStudentById",
+						new Integer(1));
+		System.out.println("####"+findStudent);
 		
-		List<Student> studentList = 
-				sqlSession.selectList("com.mybatis3.dao.mapper.StudentMapper.findAllStudents");
+		List<Student> studentList=
+				sqlSession
+				.selectList("com.mybatis3.dao.mapper.StudentMapper.findAllStudents");
 		System.out.println(studentList);
-		//sqlSession.selectOne();
-		//sqlSession.selectList();
+		/*
+		 * 5. SqlSession close
+		 */
+		sqlSession.close();
+		
 	}
+
 }
+
+
