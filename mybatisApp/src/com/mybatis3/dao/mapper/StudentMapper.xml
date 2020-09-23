@@ -9,6 +9,7 @@
 		<result column="EMAIL" property="email" />
 		<result column="dob" property="dob" />
 	</resultMap>
+	
 	<resultMap id="studentWithAddressResultMap"	type="com.mybatis3.domain.Student" autoMapping="true">
 		<result column="STUD_ID" property="studId" />
 		<!-- <result column="NAME" property="name"/> <result column="EMAIL" property="email"/> 
@@ -18,6 +19,7 @@
 			<result column="addr_id" property="addrId" />
 		</association>
 	</resultMap>
+	
 	<resultMap id="studentWithCoursesResultMap"
 		extends="studentResultMap" type="com.mybatis3.domain.Student">
 		<result column="student_name" property="name" />
@@ -173,6 +175,7 @@
 		update students set name=#{name},email=#{email},dob=#{dob}
 		where stud_id=#{studId}
 	</update>
+	
 	<select id="findStudentByIdRangeParamMap" 
 			parameterType="map"
 			resultType="com.mybatis3.domain.Student">
