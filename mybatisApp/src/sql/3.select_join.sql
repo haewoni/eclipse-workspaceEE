@@ -67,13 +67,17 @@ select  s.stud_id,s.name as student_name ,s.email,s.phone,s.dob ,
        
 
 
-     
+/*
+tutor + courses join
+*/
        
 SELECT t.tutor_id, t.name as tutor_name, email,course_id, c.name, description, start_date, end_date
       FROM tutors t 
       inner join courses c 
       on t.tutor_id=c.tutor_id; 
-      
+/*
+outer join
+*/
       
 SELECT t.tutor_id, t.name as tutor_name, email,course_id, c.name, description, start_date, end_date
       FROM tutors t 
@@ -88,7 +92,9 @@ SELECT t.tutor_id, t.name as tutor_name, email,course_id, c.name, description, s
       left outer join courses c 
       on t.tutor_id=c.tutor_id
       where t.tutor_id=1;  
-      
+/*
+tutor + address + courses
+*/
 SELECT t.tutor_id, t.name as tutor_name, email, a.addr_id, street, city, state, zip, country,
        			course_id, c.name, description, start_date, end_date
       FROM tutors t 

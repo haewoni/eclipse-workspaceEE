@@ -1,19 +1,21 @@
 package com.mybatis3.dao;
 
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.mybatis3.domain.Tutor;
+import com.mybatis3.domain.Student;
 
-public class TutorDao 
-{
+public class StudentDaoDynamicSql {
 	private SqlSessionFactory sqlSessionFactory;
-	public static final String NAMESPACE="com.mybatis3.dao.mapper.TutorMapper.";
-	public TutorDao(){
+	public static final String NAMESPACE="com.mybatis3.dao.mapper.StudentMapperDynamicSql.";
+	public StudentDaoDynamicSql(){
 		try {
 			InputStream mybatisConfigInputStream = 
 					Resources.getResourceAsStream("mybatis-config.xml");
@@ -23,16 +25,9 @@ public class TutorDao
 			e.printStackTrace();
 		}
 	}
-	public Tutor findTutorByIdWithCoursesAndAddress(Integer tutorId) {
-		SqlSession sqlSession=sqlSessionFactory.openSession();
-		Tutor tutor=
-				sqlSession.selectOne(
-						NAMESPACE+"findTutorByIdWithCoursesAndAddress",tutorId);
-		sqlSession.close();
-		return tutor;
-	}
+	
+	
 }
-
 
 
 

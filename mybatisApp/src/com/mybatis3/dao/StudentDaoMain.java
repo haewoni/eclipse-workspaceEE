@@ -1,6 +1,7 @@
 package com.mybatis3.dao;
 
 import java.util.Date;
+import java.util.HashMap;
 
 import com.mybatis3.domain.Student;
 
@@ -42,13 +43,40 @@ public class StudentDaoMain {
 		System.out.println("###"+studentDao.findStudentByIdWithAddress(3));
 		System.out.println("---------findStudentByIdWithCourses----------");
 		System.out.println("###"+studentDao.findStudentByIdWithCourses(2));
+		System.out.println("---------findStudentNameList----------");
+		System.out.println("### "+studentDao.findStudentNameList());
+		System.out.println("---------findStudentNameById----------");
+		System.out.println("### "+studentDao.findStudentNameById(1));
+		System.out.println("-------findStudentByIdMap-------");
+		System.out.println("### "+studentDao.findStudentByIdMap(1));
+		System.out.println("------------findAllStudentsMapList-------------");
+		System.out.println("### "+studentDao.findAllStudentsMapList());
+		System.out.println("---------updateStudentParamMap(parameter Map)----");
+		HashMap studentMap=new HashMap();
+		studentMap.put("studId",1);
+		studentMap.put("name","유노유노");
+		studentMap.put("email","you@no.co.kr");
+		studentMap.put("dob",new Date());
+		System.out.println("### "+studentDao.updateStudentParamMap(studentMap));
+		System.out.println("---------findStudentByIdRangeParamMap(parameter Map)----");
+		HashMap rangeMap=new HashMap();
+		rangeMap.put("startNo", 1);
+		rangeMap.put("endNo", 3);
+		System.out.println("### "+studentDao.findStudentByIdRangeParamMap(rangeMap));
+		System.out.println("---------findStudentsThreeParamMap(parameter Map)----");
+		Student s1 = new Student(1);
+		Student s3 = new Student(3);
+		Student s5 = new Student(5);
+		HashMap threeStudentMap = new HashMap();
+		threeStudentMap.put("first", s1);
+		threeStudentMap.put("second", s3);
+		threeStudentMap.put("third", s5);
+		System.out.println("###"+studentDao.findStudentsThreeParamMap(threeStudentMap));
+		
 		
 		/*
-		System.out.println("-------findStudentByIdMap-------");
-		System.out.println("------------findAllStudentsMap-------------");
 		System.out.println("---------findAllStudentsResultMap---------");
 		System.out.println("---------findStudentByIdNestedfindAddressById-----------");
-		System.out.println("---------insertStudentParameterMap(parameter Map)----");
 		System.out.println("---------updateStudentDynamicSql---------");
 		System.out.println("---------findStudentCount----------------");
 		*/

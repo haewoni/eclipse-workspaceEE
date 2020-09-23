@@ -1,6 +1,5 @@
 ﻿package com.itwill.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.itwill.user.exception.ExistedUserException;
@@ -14,10 +13,10 @@ import com.itwill.user.exception.UserNotFoundException;
  */
 
 public class UserService {
-	private UserDaoMyBatis userDao;
+	private UserDao userDao;
 	
 	public UserService() throws Exception{
-		userDao=new UserDaoMyBatis();
+		userDao=new UserDao();
 	}
 	/*
 	 * 회원가입

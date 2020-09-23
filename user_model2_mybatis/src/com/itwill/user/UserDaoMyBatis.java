@@ -67,6 +67,28 @@ public class UserDaoMyBatis {
 		sqlSession.close();
 		return userList;
 	}
+	public User findUser(String userId) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		User findUser =
+				sqlSession.selectOne(NAMESPACE+"findUser",userId);
+		sqlSession.close();
+		return findUser;
+	}
+	public int create(User user) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int insertRowCount = sqlSession.insert(NAMESPACE+"create",user);
+		sqlSession.close();
+		return insertRowCount;
+	}
+	public int update(User user) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int updateRowCount = sqlSession.insert(NAMESPACE+"update",user);
+		sqlSession.close();
+		return updateRowCount;
+	}
+	
+	
+	
 
 //	/*
 //	 * 인자로 전달되는 아이디를 가지는 사용자가 존재하는지의 여부를판별
